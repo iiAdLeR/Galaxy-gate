@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Gate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow left" id="prevPlanet">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        
+        <button class="nav-arrow right" id="nextPlanet">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <!-- Planet Container -->
+        <div class="planet-container">
+            <div class="planet" id="planet">
+                <div class="planet-surface"></div>
+                <div class="planet-atmosphere"></div>
+                <div class="planet-rings" id="planetRings"></div>
+            </div>
+        </div>
+
+        <!-- Planet Info Card -->
+        <div class="info-card">
+            <h1 class="planet-name" id="planetName">Mercury</h1>
+            <div class="planet-stats">
+                <div class="stat">
+                    <span class="stat-label">DIAMETER</span>
+                    <span class="stat-value" id="planetDiameter">4,879 km</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">DISTANCE TO SUN</span>
+                    <span class="stat-value" id="planetDistance">57.9 million km</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">DAY LENGTH</span>
+                    <span class="stat-value" id="planetDay">59 days</span>
+                </div>
+            </div>
+            <p class="planet-description" id="planetDescription">
+                Mercury, the closest planet to the Sun, stands out with its rapid movement and dense structure. 
+                Although it is the smallest planet in the solar system, its iron core is quite large.
+            </p>
+        </div>
+
+        <!-- Planet Indicators -->
+        <div class="planet-indicators">
+            <div class="indicator active" data-planet="0"></div>
+            <div class="indicator" data-planet="1"></div>
+            <div class="indicator" data-planet="2"></div>
+            <div class="indicator" data-planet="3"></div>
+            <div class="indicator" data-planet="4"></div>
+            <div class="indicator" data-planet="5"></div>
+            <div class="indicator" data-planet="6"></div>
+            <div class="indicator" data-planet="7"></div>
+        </div>
+    </div>
+
+    <script>
+        // Gezegen verileri JSON dosyasından yüklenecek
+        let planets = [];
+        let currentPlanetIndex = 0;
+
+        // DOM elementleri
+        const planetElement = document.getElementById('planet');
+        const planetName = document.getElementById('planetName');
+        const planetDiameter = document.getElementById('planetDiameter');
+        const planetDistance = document.getElementById('planetDistance');
+        const planetDay = document.getElementById('planetDay');
+        const planetDescription = document.getElementById('planetDescription');
+        const planetRings = document.getElementById('planetRings');
+        const indicators = document.querySelectorAll('.indicator');
+        const navigationArrows = document.querySelectorAll('.nav-arrow');
+        const planetInfoCard = document.querySelector('.info-card');
+        const planetContainer = document.querySelector('.planet-container');
+
+        // JSON dosyasından gezegen verilerini yükle
+        async function loadPlanets() {
+            try {
+                const response = await fetch('planets.json');
+                planets = await response.json();
+                updatePlanet(0);
+            } catch (error) {
+                console.error('Gezegen verileri yüklenirken hata oluştu:', error);
+                navigationArrows.forEach(arrow => arrow.style.display = 'none');
+                planetInfoCard.style.display = 'none';
+                planetContainer.style.display = 'none';
+                indicators.forEach(indicator => indicator.style.display = 'none');
+                const displayError = document.createElement('div');
+                displayError.className = 'error-message';
+                displayError.innerHTML = '<h1>Gezegenler yüklenirken bir hata oluştu</h1>';
+                document.body.appendChild(displayError);
+            }
+        }
+
+        // Gezegen güncelleme fonksiyonu
+        function updatePlanet(index) {
+            if (!planets[index]) return;
+            
+            const planet = planets[index];
+            
+            // Geçiş animasyonu başlat
+            startTransition();
+            
+            // Animasyon tamamlandıktan sonra içeriği güncelle
+            setTimeout(() => {
+                // Gezegen rengini güncelle
+                planetElement.style.setProperty('--planet-color', planet.color);
+                
+                // Bilgileri güncelle
+                planetName.textContent = planet.name;
+                planetDiameter.textContent = planet.diameter;
+                planetDistance.textContent = planet.distance;
+                planetDay.textContent = planet.dayLength;
+                planetDescription.textContent = planet.description;
+                
+                // Halkaları göster/gizle
+                if (planet.hasRings) {
+                    planetRings.style.display = 'block';
+                } else {
+                    planetRings.style.display = 'none';
+                }
+                
+                // Göstergeleri güncelle
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+                
+                // Geçiş animasyonunu bitir
+                endTransition();
+            }, 300);
+        }
+
+        // Geçiş animasyonu başlatma
+        function startTransition() {
+            planetElement.classList.add('transitioning');
+            planetName.classList.add('transitioning');
+            planetDiameter.classList.add('transitioning');
+            planetDistance.classList.add('transitioning');
+            planetDay.classList.add('transitioning');
+            planetDescription.classList.add('transitioning');
+            planetRings.classList.add('transitioning');
+        }
+
+        // Geçiş animasyonu bitirme
+        function endTransition() {
+            setTimeout(() => {
+                // Eski transitioning class'ları kaldır
+                planetElement.classList.remove('transitioning');
+                planetName.classList.remove('transitioning');
+                planetDiameter.classList.remove('transitioning');
+                planetDistance.classList.remove('transitioning');
+                planetDay.classList.remove('transitioning');
+                planetDescription.classList.remove('transitioning');
+                planetRings.classList.remove('transitioning');
+                
+                // Yeni entering animasyonlarını başlat
+                planetElement.classList.add('entering');
+                planetName.classList.add('entering');
+                planetDiameter.classList.add('entering');
+                planetDistance.classList.add('entering');
+                planetDay.classList.add('entering');
+                planetDescription.classList.add('entering');
+                planetRings.classList.add('entering');
+                
+                // Entering animasyonlarını temizle
+                setTimeout(() => {
+                    planetElement.classList.remove('entering');
+                    planetName.classList.remove('entering');
+                    planetDiameter.classList.remove('entering');
+                    planetDistance.classList.remove('entering');
+                    planetDay.classList.remove('entering');
+                    planetDescription.classList.remove('entering');
+                    planetRings.classList.remove('entering');
+                }, 1200);
+            }, 100);
+        }
+
+        // Sonraki gezegen
+        function nextPlanet() {
+            currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
+            updatePlanet(currentPlanetIndex);
+        }
+
+        // Önceki gezegen
+        function prevPlanet() {
+            currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
+            updatePlanet(currentPlanetIndex);
+        }
+
+        // Event listeners
+        document.getElementById('nextPlanet').addEventListener('click', nextPlanet);
+        document.getElementById('prevPlanet').addEventListener('click', prevPlanet);
+
+        // Gösterge tıklama
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentPlanetIndex = index;
+                updatePlanet(currentPlanetIndex);
+            });
+        });
+
+        // Klavye navigasyonu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevPlanet();
+            } else if (e.key === 'ArrowRight') {
+                nextPlanet();
+            }
+        });
+
+        // Sayfa yüklendiğinde gezegen verilerini yükle
+        loadPlanets();
+    </script>
+</body>
+</html>
