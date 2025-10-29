@@ -12,7 +12,6 @@
       <header class="quiz-header">
         <h1>Space Science Quiz</h1>
       </header>
-
       <section id="quiz" class="quiz"></section>
       <section id="summary" class="summary"></section>
 
@@ -65,6 +64,8 @@
         retryBtn.hidden = true;
         nextBtn.hidden = false;
         prevBtn.hidden = false;
+        summaryEl = document.getElementById("summary");
+        summaryEl.innerHTML = "";
 
         currentSet = shuffle([...questions]).slice(0, TOTAL_QUESTIONS);
         answers = new Array(currentSet.length).fill(null);
@@ -78,11 +79,22 @@
         const name = `q_active`;
 
         quizEl.innerHTML = `
-          <article class=\"card\" data-index=\"${index}\">\n            <h2 class=\"q-title\">${index + 1}. ${q.q}</h2>\n            <div class=\"options\">\n              ${q.options
-                .map(
-                  (opt, i) => `\n                <label class=\"option\">\n                  <input type=\"radio\" name=\"${name}\" value=\"${i}\" ${sel === i ? "checked" : ""} ${submitted ? "disabled" : ""}/>\n                  <span>${opt}</span>\n                </label>`
-                )
-                .join("")}\n            </div>\n            <div class=\"feedback\" aria-live=\"polite\"></div>\n          </article>`;
+          <article class=\"card\" data-index=\"${index}\">\n            <h2 class=\"q-title\">${
+          index + 1
+        }. ${
+          q.q
+        }</h2>\n            <div class=\"options\">\n              ${q.options
+          .map(
+            (opt, i) =>
+              `\n                <label class=\"option\">\n                  <input type=\"radio\" name=\"${name}\" value=\"${i}\" ${
+                sel === i ? "checked" : ""
+              } ${
+                submitted ? "disabled" : ""
+              }/>\n                  <span>${opt}</span>\n                </label>`
+          )
+          .join(
+            ""
+          )}\n            </div>\n            <div class=\"feedback\" aria-live=\"polite\"></div>\n          </article>`;
 
         const feedback = quizEl.querySelector(".feedback");
         if (submitted) {
@@ -93,7 +105,9 @@
             feedback.textContent = "Correct";
             feedback.className = "feedback correct";
           } else {
-            feedback.textContent = `Incorrect • Correct answer: ${q.options[q.answer]}`;
+            feedback.textContent = `Incorrect • Correct answer: ${
+              q.options[q.answer]
+            }`;
             feedback.className = "feedback incorrect";
           }
         } else {
@@ -184,6 +198,7 @@
         prevBtn.hidden = true;
         nextBtn.hidden = true;
         submitBtn.hidden = true;
+        progressEl.textContent = "";
       }
 
       submitBtn.addEventListener("click", grade);
