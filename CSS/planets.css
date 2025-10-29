@@ -7,11 +7,26 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    /* Modern deep-space background */
+    background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(66, 133, 244, 0.10), transparent 60%),
+        radial-gradient(900px 700px at 10% 120%, rgba(123, 31, 162, 0.10), transparent 60%),
+        radial-gradient(600px 500px at 50% 20%, rgba(0, 255, 234, 0.06), transparent 55%),
+        linear-gradient(180deg, #0b0d18 0%, #0a0c16 35%, #060914 100%);
     color: #ffffff;
     overflow: hidden;
     height: 100vh;
     position: relative;
+}
+
+/* Subtle vignette for cinematic depth */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 100%);
+    z-index: 1;
 }
 
 /* Yıldızlar arka planı */
@@ -22,15 +37,16 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
-        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+        radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, transparent),
+        radial-gradient(1.2px 1.2px at 40px 70px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.6px 1.6px at 160px 30px, rgba(255,255,255,0.8), transparent);
     background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: twinkle 4s ease-in-out infinite alternate;
-    z-index: 1;
+    background-size: 220px 120px;
+    animation: twinkle 5s ease-in-out infinite alternate;
+    opacity: 0.85;
+    z-index: 0;
 }
 
 @keyframes twinkle {
@@ -101,116 +117,31 @@ body {
     perspective: 1000px;
 }
 
-/* 3D Gezegen */
-.planet {
-    --planet-color: #8C7853;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, 
-        lighten(var(--planet-color), 20%) 0%,
-        var(--planet-color) 50%,
-        darken(var(--planet-color), 20%) 100%);
-    animation: rotate 20s linear infinite;
-    box-shadow: 
-        0 0 50px rgba(255, 255, 255, 0.1),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-    transform-style: preserve-3d;
-}
+/* 3D Gezegen kaldırıldı - sadece GIF kullanılacak */
 
-@keyframes rotate {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-}
-
-/* Gezegen yüzeyi */
-.planet-surface {
+/* Gezegen GIF görseli */
+.planet-gif {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
-    animation: surfaceRotate 15s linear infinite reverse;
+    object-fit: cover;
+    pointer-events: none;
+    /* Arka plan 3D/surface ile uyumlu görünsün diye hafif overlay */
+    mix-blend-mode: screen;
+    opacity: 1;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes surfaceRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* rotate keyframe kaldırıldı */
 
-/* Gezegen atmosferi */
-.planet-atmosphere {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    border-radius: 50%;
-    background: radial-gradient(circle, 
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.05) 30%,
-        transparent 70%);
-    animation: atmospherePulse 3s ease-in-out infinite alternate;
-}
+/* Gezegen yüzeyi ve animasyonu kaldırıldı */
 
-@keyframes atmospherePulse {
-    0% { transform: scale(1); opacity: 0.3; }
-    100% { transform: scale(1.05); opacity: 0.6; }
-}
+/* Gezegen atmosferi ve animasyonu kaldırıldı */
 
-/* Gezegen halkaları */
-.planet-rings {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateX(75deg);
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top: 2px solid rgba(255, 255, 255, 0.6);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    animation: ringRotate 30s linear infinite;
-    display: none;
-}
-
-.planet-rings::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.planet-rings::after {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: calc(100% - 80px);
-    height: calc(100% - 80px);
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-}
-
-@keyframes ringRotate {
-    0% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
-    100% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
-}
+/* Gezegen halkaları ve animasyonu kaldırıldı */
 
 /* Bilgi kartı */
 .info-card {
@@ -390,10 +321,7 @@ body {
         height: 250px;
     }
     
-    .planet-rings {
-        width: 320px;
-        height: 320px;
-    }
+    /* halka boyutları kaldırıldı */
     
     .info-card {
         margin: 0 20px;
@@ -454,10 +382,7 @@ body {
         height: 200px;
     }
     
-    .planet-rings {
-        width: 260px;
-        height: 260px;
-    }
+    /* halka boyutları kaldırıldı */
     
     .planet-name {
         font-size: 1.5rem;
@@ -497,10 +422,7 @@ body {
     }
 }
 
-/* Gezegen geçiş animasyonları */
-.planet {
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Gezegen geçiş animasyonları kaldırıldı */
 
 .info-card {
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -531,9 +453,7 @@ body {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.planet-rings {
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* halka geçişleri kaldırıldı */
 
 /* Geçiş sırasında fade efektleri */
 .info-card.transitioning {
@@ -542,11 +462,7 @@ body {
     filter: blur(2px);
 }
 
-.planet.transitioning {
-    transform: scale(0.85) rotateY(90deg);
-    opacity: 0.7;
-    filter: blur(1px);
-}
+/* gezegen transitioning kaldırıldı */
 
 .planet-name.transitioning {
     opacity: 0;
@@ -576,10 +492,13 @@ body {
     filter: blur(1px);
 }
 
-.planet-rings.transitioning {
-    opacity: 0;
-    transform: scale(0.7) rotateZ(45deg);
-    filter: blur(2px);
+/* halka transitioning kaldırıldı */
+
+/* GIF geçiş efektleri */
+.planet-gif.transitioning {
+    opacity: 0.3;
+    transform: scale(0.9) rotateY(45deg);
+    filter: blur(1px);
 }
 
 /* Yeni içerik için giriş animasyonu */
@@ -595,12 +514,10 @@ body {
     animation: slideInFromBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.planet.entering {
-    animation: planetEnter 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+/* gezegen/ring entering kaldırıldı */
 
-.planet-rings.entering {
-    animation: ringsEnter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.planet-gif.entering {
+    animation: planetEnter 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .hidden {
@@ -692,65 +609,6 @@ body {
     }
 }
 
-@keyframes ringsEnter {
-    0% {
-        opacity: 0;
-        transform: scale(0.7) rotateZ(45deg);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) rotateZ(0deg);
-        filter: blur(0);
-    }
-}
+/* ringsEnter kaldırıldı */
 
-/* Özel gezegen renkleri için CSS değişkenleri */
-.planet[style*="--planet-color: #FFC649"] {
-    box-shadow: 
-        0 0 50px rgba(255, 198, 73, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #6B93D6"] {
-    box-shadow: 
-        0 0 50px rgba(107, 147, 214, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #CD5C5C"] {
-    box-shadow: 
-        0 0 50px rgba(205, 92, 92, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #D8CA9D"] {
-    box-shadow: 
-        0 0 50px rgba(216, 202, 157, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #FAD5A5"] {
-    box-shadow: 
-        0 0 50px rgba(250, 213, 165, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #4FD0E7"] {
-    box-shadow: 
-        0 0 50px rgba(79, 208, 231, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
-
-.planet[style*="--planet-color: #4B70DD"] {
-    box-shadow: 
-        0 0 50px rgba(75, 112, 221, 0.3),
-        inset -20px -20px 50px rgba(0, 0, 0, 0.3),
-        inset 20px 20px 50px rgba(255, 255, 255, 0.1);
-}
+/* Özel gezegen renkleri kaldırıldı */

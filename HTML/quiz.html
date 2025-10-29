@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galaxy Gate • Space Quiz</title>
+    <link rel="stylesheet" href="../CSS/quiz.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <main class="quiz-container">
+      <header class="quiz-header">
+        <h1>Space Science Quiz</h1>
+      </header>
+      <section id="quiz" class="quiz"></section>
+      <section id="summary" class="summary"></section>
+
+      <footer class="quiz-footer">
+        <button id="prevBtn" class="ghost">Prev</button>
+        <button id="nextBtn" class="primary">Next</button>
+        <button id="submitBtn" class="primary" hidden>Submit</button>
+        <button id="retryBtn" class="ghost" hidden>Try Again</button>
+        <div id="progress" class="result"></div>
+        <div id="result" class="result" aria-live="polite"></div>
+      </footer>
+    </main>
+
+    <script>
+      const QUIZ_URL = "../JSON/quiz.json";
+      const TOTAL_QUESTIONS = 10;
+
+      const quizEl = document.getElementById("quiz");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const retryBtn = document.getElementById("retryBtn");
+      const progressEl = document.getElementById("progress");
+      const resultEl = document.getElementById("result");
+
+      let questions = [];
+      let currentSet = [];
+      let answers = [];
+      let submitted = false;
+      let currentIndex = 0;
+
+      function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      async function loadQuiz() {
+        const res = await fetch(QUIZ_URL);
+        questions = await res.json();
+        startRound();
+      }
+
+      function startRound() {
+        resultEl.textContent = "";
+        submitted = false;
+        submitBtn.hidden = true;
+        retryBtn.hidden = true;
+        nextBtn.hidden = false;
+        prevBtn.hidden = false;
+        summaryEl = document.getElementById("summary");
+        summaryEl.innerHTML = "";
+
+        currentSet = shuffle([...questions]).slice(0, TOTAL_QUESTIONS);
+        answers = new Array(currentSet.length).fill(null);
+        currentIndex = 0;
+        renderQuestion(currentIndex);
+      }
+
+      function renderQuestion(index) {
+        const q = currentSet[index];
+        const sel = answers[index];
+        const name = `q_active`;
+
+        quizEl.innerHTML = `
+          <article class=\"card\" data-index=\"${index}\">\n            <h2 class=\"q-title\">${
+          index + 1
+        }. ${
+          q.q
+        }</h2>\n            <div class=\"options\">\n              ${q.options
+          .map(
+            (opt, i) =>
+              `\n                <label class=\"option\">\n                  <input type=\"radio\" name=\"${name}\" value=\"${i}\" ${
+                sel === i ? "checked" : ""
+              } ${
+                submitted ? "disabled" : ""
+              }/>\n                  <span>${opt}</span>\n                </label>`
+          )
+          .join(
+            ""
+          )}\n            </div>\n            <div class=\"feedback\" aria-live=\"polite\"></div>\n          </article>`;
+
+        const feedback = quizEl.querySelector(".feedback");
+        if (submitted) {
+          if (sel === null) {
+            feedback.textContent = "No answer selected";
+            feedback.className = "feedback neutral";
+          } else if (sel === q.answer) {
+            feedback.textContent = "Correct";
+            feedback.className = "feedback correct";
+          } else {
+            feedback.textContent = `Incorrect • Correct answer: ${
+              q.options[q.answer]
+            }`;
+            feedback.className = "feedback incorrect";
+          }
+        } else {
+          feedback.textContent = "";
+          feedback.className = "feedback";
+        }
+
+        updateControls(index);
+      }
+
+      function updateControls(index) {
+        progressEl.textContent = `${index + 1} / ${currentSet.length}`;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === currentSet.length - 1;
+        submitBtn.hidden = index !== currentSet.length - 1 || submitted;
+        nextBtn.hidden = index === currentSet.length - 1;
+      }
+
+      function saveCurrentSelection(index) {
+        const selected = quizEl.querySelector("input[type=radio]:checked");
+        answers[index] = selected ? Number(selected.value) : answers[index];
+      }
+
+      prevBtn.addEventListener("click", () => {
+        saveCurrentSelection(currentIndex);
+        currentIndex = Math.max(0, currentIndex - 1);
+        renderQuestion(currentIndex);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        saveCurrentSelection(currentIndex);
+        currentIndex = Math.min(currentSet.length - 1, currentIndex + 1);
+        renderQuestion(currentIndex);
+      });
+
+      function grade() {
+        if (!confirm("Are you sure you want to submit your answers?")) {
+          return;
+        }
+        saveCurrentSelection(currentIndex);
+        let correct = 0;
+        submitted = true;
+        for (let i = 0; i < currentSet.length; i++) {
+          if (answers[i] === currentSet[i].answer) correct++;
+        }
+        resultEl.textContent = `You scored ${correct} / ${TOTAL_QUESTIONS}`;
+        retryBtn.hidden = false;
+        renderQuestion(currentIndex);
+
+        // Build summary table
+        const rows = currentSet
+          .map((q, i) => {
+            const isCorrect = answers[i] === q.answer;
+            const chosen = answers[i] != null ? q.options[answers[i]] : "—";
+            const correctText = q.options[q.answer];
+            return `
+              <tr class="${isCorrect ? "ok" : "bad"}">
+                <td>${i + 1}</td>
+                <td>${q.q}</td>
+                <td>${chosen}</td>
+                <td>${correctText}</td>
+                <td>${isCorrect ? "✔" : "✘"}</td>
+              </tr>`;
+          })
+          .join("");
+
+        document.getElementById("summary").innerHTML = `
+          <h3 class="summary-title">Your Answers</h3>
+          <div class="table-wrap">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Question</th>
+                  <th>Your Answer</th>
+                  <th>Correct Answer</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows}
+              </tbody>
+            </table>
+          </div>`;
+
+        // After showing summary: remove question card and navigation
+        quizEl.innerHTML = "";
+        prevBtn.hidden = true;
+        nextBtn.hidden = true;
+        submitBtn.hidden = true;
+        progressEl.textContent = "";
+      }
+
+      submitBtn.addEventListener("click", grade);
+      retryBtn.addEventListener("click", startRound);
+
+      loadQuiz().catch(() => {
+        quizEl.innerHTML = `<div class=\"error\">Failed to load quiz.</div>`;
+        nextBtn.disabled = true;
+        prevBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>
