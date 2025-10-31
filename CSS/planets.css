@@ -71,8 +71,8 @@ body::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -80,8 +80,7 @@ body::after {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     z-index: 10;
 }
 
@@ -115,12 +114,20 @@ body::after {
     height: 300px;
     margin-bottom: 40px;
     perspective: 1000px;
+    border-radius: 50%;
+    overflow: hidden; /* videodaki siyah alanları maskele */
+}
+
+/* Saturn gibi crop edilmemesi istenen durumlarda maskeyi kaldır */
+.planet-container.no-mask {
+    border-radius: 0;
+    overflow: visible;
 }
 
 /* 3D Gezegen kaldırıldı - sadece GIF kullanılacak */
 
-/* Gezegen GIF görseli */
-.planet-gif {
+/* Gezegen video görseli */
+.planet-video, .planet-gif {
     position: absolute;
     top: 0;
     left: 0;
@@ -129,10 +136,27 @@ body::after {
     border-radius: 50%;
     object-fit: cover;
     pointer-events: none;
-    /* Arka plan 3D/surface ile uyumlu görünsün diye hafif overlay */
-    mix-blend-mode: screen;
     opacity: 1;
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    /* planet media shows instantly; no transition */
+}
+
+/* Crop edilmeden gösterim (tam içerik) */
+.planet-gif.no-crop {
+    object-fit: contain;
+    border-radius: 0;
+}
+
+/* Satürn'ü biraz büyüt */
+.planet-gif.saturn-large {
+    transform: scale(1.35);
+    transform-origin: center center;
+}
+
+/* JSON değerlerine göre kırpma/ölçekleme */
+.planet-video {
+    transform-origin: center center;
+    transform: translate(var(--video-offset-x, 0%), var(--video-offset-y, 0%)) scale(var(--video-scale, 1));
 }
 
 /* rotate keyframe kaldırıldı */
@@ -146,24 +170,22 @@ body::after {
 /* Bilgi kartı */
 .info-card {
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 24px;
     padding: 20px;
     max-width: 600px;
     min-height: 300px;
     max-height: 500px;
     text-align: center;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     margin-top: 15px;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    will-change: transform, opacity;
 }
 
 .planet-name {
@@ -186,13 +208,13 @@ body::after {
     flex-direction: column;
     align-items: center;
     padding: 15px 10px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     flex: 1;
-    backdrop-filter: blur(15px);
     transition: all 0.3s ease;
     min-width: 0;
+    will-change: transform, opacity;
 }
 
 .stat:hover {
@@ -495,11 +517,8 @@ body::after {
 /* halka transitioning kaldırıldı */
 
 /* GIF geçiş efektleri */
-.planet-gif.transitioning {
-    opacity: 0.3;
-    transform: scale(0.9) rotateY(45deg);
-    filter: blur(1px);
-}
+.planet-gif.transitioning { opacity: 1; transform: none; filter: none; }
+.planet-video.transitioning { opacity: 1; transform: none; filter: none; }
 
 /* Yeni içerik için giriş animasyonu */
 .planet-name.entering {
@@ -516,9 +535,8 @@ body::after {
 
 /* gezegen/ring entering kaldırıldı */
 
-.planet-gif.entering {
-    animation: planetEnter 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+.planet-gif.entering { animation: none; }
+.planet-video.entering { animation: none; }
 
 .hidden {
     display: none;

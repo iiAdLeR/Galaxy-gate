@@ -48,6 +48,7 @@
 
       <!-- Planet Container -->
       <div class="planet-container">
+        <video id="planetVideo" class="planet-video" preload="metadata" autoplay loop muted playsinline></video>
         <img id="planetGif" class="planet-gif" alt="Planet animation" />
       </div>
 
@@ -94,6 +95,7 @@
       let currentPlanetIndex = 0;
 
       // DOM elementleri
+      const planetVideo = document.getElementById("planetVideo");
       const planetGif = document.getElementById("planetGif");
       const planetName = document.getElementById("planetName");
       const planetDiameter = document.getElementById("planetDiameter");
@@ -126,6 +128,35 @@
         }
       }
 
+      // Yardımcılar: tek video render sistemi
+      function stopAndUnloadVideo() {
+        try {
+          planetVideo.pause();
+        } catch (e) {}
+        planetVideo.removeAttribute("src");
+        planetVideo.load(); // frees decoder/memory on most browsers
+      }
+
+      function setVideoSourceAndPlay(src) {
+        stopAndUnloadVideo();
+        planetVideo.src = src;
+        // Lazy play when ready and visible
+        const playIfVisible = () => {
+          if (!isVideoVisible) return;
+          const p = planetVideo.play();
+          if (p && typeof p.then === "function") p.catch(() => {});
+        };
+        planetVideo.oncanplay = () => {
+          planetVideo.oncanplay = null;
+          playIfVisible();
+        };
+        // Fallback start on idle
+        if (window.requestIdleCallback) requestIdleCallback(playIfVisible, { timeout: 800 });
+        else setTimeout(playIfVisible, 120);
+      }
+
+      let isVideoVisible = true;
+
       // Gezegen güncelleme fonksiyonu
       function updatePlanet(index) {
         if (!planets[index]) return;
@@ -137,18 +168,49 @@
 
          // Çıkış animasyonundan sonra içeriği güncelle (metin fade-out: ~600ms)
          setTimeout(() => {
-          // GIF kaynağını Mercury/Venus için ayarla, diğerlerinde gizle
+          // Video kaynağını ayarla, yoksa gizle
           const lowerName = planet.name.toLowerCase();
-          if (lowerName === "mercury") {
-            planetGif.src = "../3D Planets/Mercury.gif";
+          let filename = null;
+          if (lowerName === "mercury") filename = "Mercury.mp4";
+          else if (lowerName === "venus") filename = "Venus.mp4";
+          else if (lowerName === "earth") filename = "Earth.mp4";
+          else if (lowerName === "mars") filename = "Mars.mp4";
+          else if (lowerName === "jupiter") filename = "Jupiter.mp4";
+          else if (lowerName === "saturn") filename = "Saturn.mp4";
+          else if (lowerName === "uranus") filename = "Uranus.mp4";
+          else if (lowerName === "neptune") filename = "Neptun.mp4"; // dosya adı "Neptun.mp4"
+
+          if (lowerName === "saturn") {
+            // Sadece Saturn GIF kullanılacak
+            stopAndUnloadVideo();
+            planetVideo.style.display = "none";
+            planetGif.src = "../3D Planets/Saturn.gif";
             planetGif.style.display = "block";
-          } else if (lowerName === "venus") {
-            planetGif.src = "../3D Planets/Venus.gif";
-            planetGif.style.display = "block";
-          } else {
+            // Satürn için crop olmasın: maske kaldır, içerik contain
+            planetContainer.classList.add("no-mask");
+            planetGif.classList.add("no-crop", "saturn-large");
+          } else if (filename) {
+            setVideoSourceAndPlay(`../3D Planets/${filename}`);
+            planetVideo.style.display = "block";
             planetGif.removeAttribute("src");
             planetGif.style.display = "none";
+            // Diğer gezegenlerde maskeyi geri getir
+            planetContainer.classList.remove("no-mask");
+            planetGif.classList.remove("no-crop", "saturn-large");
+          } else {
+            stopAndUnloadVideo();
+            planetVideo.style.display = "none";
+            planetGif.removeAttribute("src");
+            planetGif.style.display = "none";
+            planetContainer.classList.remove("no-mask");
+            planetGif.classList.remove("no-crop", "saturn-large");
           }
+
+          // Video kırpma ayarlarını uygula (JSON'daki videoCrop)
+          const crop = planet.videoCrop || { scale: 1, offsetX: 0, offsetY: 0 };
+          planetVideo.style.setProperty("--video-scale", crop.scale);
+          planetVideo.style.setProperty("--video-offset-x", crop.offsetX + "%");
+          planetVideo.style.setProperty("--video-offset-y", crop.offsetY + "%");
 
           // Bilgileri güncelle
           planetName.textContent = planet.name;
@@ -239,6 +301,32 @@
           prevPlanet();
         } else if (e.key === "ArrowRight") {
           nextPlanet();
+        }
+      });
+
+      // IntersectionObserver ile görünürlük kontrolü
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isVideoVisible = entry.isIntersecting && entry.intersectionRatio > 0;
+          if (!isVideoVisible) {
+            try { planetVideo.pause(); } catch (e) {}
+          } else {
+            if (planetVideo.src) {
+              const p = planetVideo.play();
+              if (p && typeof p.then === "function") p.catch(() => {});
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+      io.observe(planetContainer);
+
+      // Sekme gizlenince durdur, geri gelince devam et
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          try { planetVideo.pause(); } catch (e) {}
+        } else if (isVideoVisible && planetVideo.src) {
+          const p = planetVideo.play();
+          if (p && typeof p.then === "function") p.catch(() => {});
         }
       });
 

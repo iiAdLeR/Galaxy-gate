@@ -6,7 +6,8 @@
         "dayLength": "59 days",
         "description": "Mercury, the closest planet to the Sun, stands out with its rapid movement and dense structure. Although it is the smallest planet in the solar system, its iron core is quite large.",
         "color": "#8C7853",
-        "hasRings": false
+        "hasRings": false,
+        "videoCrop": { "scale": 1.13, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Venus",
@@ -15,7 +16,8 @@
         "dayLength": "243 days",
         "description": "Venus, the hottest planet in the solar system, is known for its dense atmosphere and greenhouse effect. Its surface is hot enough to melt lead.",
         "color": "#FFC649",
-        "hasRings": false
+        "hasRings": false,
+        "videoCrop": { "scale": 1.29, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Earth",
@@ -24,7 +26,8 @@
         "dayLength": "24 hours",
         "description": "Earth, our home, is known as the only planet that harbors life. It is unique with its oceans, atmosphere, and diverse ecosystems.",
         "color": "#6B93D6",
-        "hasRings": false
+        "hasRings": false,
+        "videoCrop": { "scale": 1.14, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Mars",
@@ -33,7 +36,8 @@
         "dayLength": "24.6 hours",
         "description": "Mars, known as the red planet, is the most promising planet for future human colonies. Polar ice caps and ancient water channels have been found.",
         "color": "#CD5C5C",
-        "hasRings": false
+        "hasRings": false,
+        "videoCrop": { "scale": 1.22, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Jupiter",
@@ -42,7 +46,8 @@
         "dayLength": "9.9 hours",
         "description": "Jupiter, the largest planet in the solar system, is known as a gas giant. It stands out with its Great Red Spot and 79 moons.",
         "color": "#D8CA9D",
-        "hasRings": true
+        "hasRings": true,
+        "videoCrop": { "scale": 1.11, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Saturn",
@@ -51,7 +56,8 @@
         "dayLength": "10.7 hours",
         "description": "Saturn, famous for its rings, is one of the most beautiful planets in the solar system. It is the only planet with a density less than water.",
         "color": "#FAD5A5",
-        "hasRings": true
+        "hasRings": true,
+        "videoCrop": { "scale": 0, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Uranus",
@@ -60,7 +66,8 @@
         "dayLength": "17.2 hours",
         "description": "Uranus, known as the sideways planet, has an axis tilted 98 degrees. Its blue-green color comes from methane gas.",
         "color": "#4FD0E7",
-        "hasRings": true
+        "hasRings": true,
+        "videoCrop": { "scale": 1.10, "offsetX": 0, "offsetY": 0 }
     },
     {
         "name": "Neptune",
@@ -69,6 +76,7 @@
         "dayLength": "16.1 hours",
         "description": "Neptune, the farthest planet in the solar system, is known for its strong winds and dark blue color. Wind speeds reach 2,100 km/h.",
         "color": "#4B70DD",
-        "hasRings": true
+        "hasRings": true,
+        "videoCrop": { "scale": 1.12, "offsetX": 0, "offsetY": 0 }
     }
 ]
