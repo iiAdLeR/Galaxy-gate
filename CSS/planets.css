@@ -1,4 +1,4 @@
-/* Reset ve temel stiller */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +29,7 @@ body::after {
     z-index: 1;
 }
 
-/* Yıldızlar arka planı */
+/* Stars background */
 .stars {
     position: fixed;
     top: 0;
@@ -54,7 +54,7 @@ body::after {
     100% { opacity: 1; }
 }
 
-/* Ana container */
+/* Main container */
 .container {
     position: relative;
     width: 100%;
@@ -66,7 +66,7 @@ body::after {
     z-index: 2;
 }
 
-/* Navigasyon okları */
+/* Navigation arrows */
 .nav-arrow {
     position: absolute;
     top: 50%;
@@ -107,7 +107,7 @@ body::after {
     transform: scale(1.2);
 }
 
-/* Gezegen container */
+/* Planet container */
 .planet-container {
     position: relative;
     width: 300px;
@@ -115,18 +115,18 @@ body::after {
     margin-bottom: 40px;
     perspective: 1000px;
     border-radius: 50%;
-    overflow: hidden; /* videodaki siyah alanları maskele */
+    overflow: hidden; /* mask black areas in video */
 }
 
-/* Saturn gibi crop edilmemesi istenen durumlarda maskeyi kaldır */
+/* Remove mask for cases where crop is not desired like Saturn */
 .planet-container.no-mask {
     border-radius: 0;
     overflow: visible;
 }
 
-/* 3D Gezegen kaldırıldı - sadece GIF kullanılacak */
+/* 3D Planet removed - only GIF will be used */
 
-/* Gezegen video görseli */
+/* Planet video image */
 .planet-video, .planet-gif {
     position: absolute;
     top: 0;
@@ -141,33 +141,33 @@ body::after {
     /* planet media shows instantly; no transition */
 }
 
-/* Crop edilmeden gösterim (tam içerik) */
+/* Display without crop (full content) */
 .planet-gif.no-crop {
     object-fit: contain;
     border-radius: 0;
 }
 
-/* Satürn'ü biraz büyüt */
+/* Scale up Saturn a bit */
 .planet-gif.saturn-large {
     transform: scale(1.35);
     transform-origin: center center;
 }
 
-/* JSON değerlerine göre kırpma/ölçekleme */
+/* Cropping/scaling according to JSON values */
 .planet-video {
     transform-origin: center center;
     transform: translate(var(--video-offset-x, 0%), var(--video-offset-y, 0%)) scale(var(--video-scale, 1));
 }
 
-/* rotate keyframe kaldırıldı */
+/* rotate keyframe removed */
 
-/* Gezegen yüzeyi ve animasyonu kaldırıldı */
+/* Planet surface and animation removed */
 
-/* Gezegen atmosferi ve animasyonu kaldırıldı */
+/* Planet atmosphere and animation removed */
 
-/* Gezegen halkaları ve animasyonu kaldırıldı */
+/* Planet rings and animation removed */
 
-/* Bilgi kartı */
+/* Info card */
 .info-card {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -271,7 +271,7 @@ body::after {
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* Gezegen göstergeleri */
+/* Planet indicators */
 .planet-indicators {
     display: flex;
     gap: 15px;
@@ -323,7 +323,7 @@ body::after {
     }
 }
 
-/* Responsive tasarım */
+/* Responsive design */
 @media (max-width: 768px) {
     .nav-arrow {
         width: 50px;
@@ -343,7 +343,7 @@ body::after {
         height: 250px;
     }
     
-    /* halka boyutları kaldırıldı */
+    /* ring sizes removed */
     
     .info-card {
         margin: 0 20px;
@@ -404,7 +404,7 @@ body::after {
         height: 200px;
     }
     
-    /* halka boyutları kaldırıldı */
+    /* ring sizes removed */
     
     .planet-name {
         font-size: 1.5rem;
@@ -444,13 +444,13 @@ body::after {
     }
 }
 
-/* Gezegen geçiş animasyonları kaldırıldı */
+/* Planet transition animations removed */
 
 .info-card {
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Gezegen bilgi geçiş animasyonları */
+/* Planet info transition animations */
 .planet-name {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -475,16 +475,16 @@ body::after {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* halka geçişleri kaldırıldı */
+/* ring transitions removed */
 
-/* Geçiş sırasında fade efektleri */
+/* Fade effects during transition */
 .info-card.transitioning {
     opacity: 0.6;
     transform: scale(0.95) translateY(10px);
     filter: blur(2px);
 }
 
-/* gezegen transitioning kaldırıldı */
+/* planet transitioning removed */
 
 .planet-name.transitioning {
     opacity: 0;
@@ -514,13 +514,13 @@ body::after {
     filter: blur(1px);
 }
 
-/* halka transitioning kaldırıldı */
+/* ring transitioning removed */
 
-/* GIF geçiş efektleri */
+/* GIF transition effects */
 .planet-gif.transitioning { opacity: 1; transform: none; filter: none; }
 .planet-video.transitioning { opacity: 1; transform: none; filter: none; }
 
-/* Yeni içerik için giriş animasyonu */
+/* Entry animation for new content */
 .planet-name.entering {
     animation: slideInFromTop 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -533,7 +533,7 @@ body::after {
     animation: slideInFromBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* gezegen/ring entering kaldırıldı */
+/* planet/ring entering removed */
 
 .planet-gif.entering { animation: none; }
 .planet-video.entering { animation: none; }
@@ -627,6 +627,6 @@ body::after {
     }
 }
 
-/* ringsEnter kaldırıldı */
+/* ringsEnter removed */
 
-/* Özel gezegen renkleri kaldırıldı */
+/* Special planet colors removed */
