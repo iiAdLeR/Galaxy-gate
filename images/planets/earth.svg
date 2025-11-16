@@ -1,0 +1,17 @@
+<svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="earthGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6DD5FA" />
+      <stop offset="65%" stop-color="#2980B9" />
+      <stop offset="100%" stop-color="#1B3B5F" />
+    </radialGradient>
+    <radialGradient id="earthGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(109, 213, 250, 0.55)" />
+      <stop offset="100%" stop-color="rgba(41, 128, 185, 0)" />
+    </radialGradient>
+  </defs>
+  <circle cx="130" cy="130" r="120" fill="url(#earthGlow)" />
+  <circle cx="130" cy="130" r="105" fill="url(#earthGradient)" />
+  <path d="M60 140C85 112 110 120 126 128C141 136 166 142 190 110" stroke="rgba(255,255,255,0.35)" stroke-width="8" stroke-linecap="round" />
+  <path d="M140 190C110 180 100 160 82 152" stroke="rgba(255,255,255,0.45)" stroke-width="6" stroke-linecap="round" />
+</svg>

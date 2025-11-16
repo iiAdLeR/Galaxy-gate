@@ -1,238 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NASA Exoplanet Discoveries - Galaxy Gate</title>
+    <title>NASA Ötegezegen Keşifleri - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/discoveries.css" />
   </head>
   <body>
     <div class="stars"></div>
+    <div class="back-link-wrapper">
+      <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
     <div class="container">
-      <!-- Header -->
       <header class="header">
-        <h1 class="main-title">NASA Exoplanet Discoveries</h1>
-        <p class="subtitle">Latest discoveries from NASA's Exoplanet Archive</p>
-        <div class="stats-bar">
-          <div class="stat-item">
-            <span class="stat-label">Total Discoveries</span>
-            <span class="stat-value" id="totalDiscoveries">-</span>
-          </div>
-        </div>
+        <h1 class="main-title">NASA Ötegezegen Keşifleri</h1>
+        <p class="subtitle">NASA'nın Ötegezegen Arşivi'nden en son keşifler</p>
       </header>
 
-      <!-- Loading State -->
-      <div class="loading-container" id="loadingContainer">
-        <div class="spinner"></div>
-        <p>Loading exoplanet discoveries...</p>
-      </div>
+      <div class="discoveries-grid">
+        <div class="discovery-card">
+          <h3>Proxima Centauri b</h3>
+          <div class="discovery-host">Yıldız: Proxima Centauri</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">11.19 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">1.07 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">1.3 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2016</span>
+            </div>
+          </div>
+          <p class="discovery-description">Dünya'ya sadece 4.2 ışık yılı uzaklıkta bilinen en yakın ötegezegen, potansiyel olarak yaşanabilir kayalık dünya.</p>
+        </div>
 
-      <!-- Error State -->
-      <div class="error-container" id="errorContainer" style="display: none;">
-        <div class="error-message">
-          <h2>Unable to load discoveries</h2>
-          <p id="errorText"></p>
-          <button class="retry-btn" id="retryBtn">Retry</button>
+        <div class="discovery-card">
+          <h3>TRAPPIST-1 e</h3>
+          <div class="discovery-host">Yıldız: TRAPPIST-1</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">6.10 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">0.92 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">12.1 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2017</span>
+            </div>
+          </div>
+          <p class="discovery-description">Ünlü TRAPPIST-1 sistemindeki yedi Dünya boyutundaki gezegenden biri, yaşamı destekleme olasılığı en yüksek olanı.</p>
+        </div>
+
+        <div class="discovery-card">
+          <h3>TRAPPIST-1 d</h3>
+          <div class="discovery-host">Yıldız: TRAPPIST-1</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">4.05 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">0.78 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">12.1 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2017</span>
+            </div>
+          </div>
+          <p class="discovery-description">TRAPPIST-1 sistemindeki Dünya boyutunda gezegen, potansiyel olarak yaşanabilir.</p>
+        </div>
+
+        <div class="discovery-card">
+          <h3>TRAPPIST-1 f</h3>
+          <div class="discovery-host">Yıldız: TRAPPIST-1</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">9.21 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">1.04 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">12.1 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2017</span>
+            </div>
+          </div>
+          <p class="discovery-description">TRAPPIST-1 sistemindeki başka bir gezegen, yaşanabilir bölgede yer alır.</p>
+        </div>
+
+        <div class="discovery-card">
+          <h3>Kepler-452b</h3>
+          <div class="discovery-host">Yıldız: Kepler-452</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">384.8 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">1.63 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">587 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2015</span>
+            </div>
+          </div>
+          <p class="discovery-description">"Dünya 2.0" olarak adlandırılan, Güneş benzeri bir yıldızın etrafındaki yaşanabilir bölgede kayalık gezegen.</p>
+        </div>
+
+        <div class="discovery-card">
+          <h3>HD 209458 b</h3>
+          <div class="discovery-host">Yıldız: HD 209458</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">3.5 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">1.38 Jüpiter</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">47.1 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">1999</span>
+            </div>
+          </div>
+          <p class="discovery-description">Geçiş yöntemiyle keşfedilen ilk ötegezegen ve atmosferi keşfedilen ilk ötegezegen.</p>
         </div>
       </div>
 
-      <!-- Discoveries Grid -->
-      <div class="discoveries-grid" id="discoveriesGrid"></div>
-
-      <!-- Load More Button -->
-      <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
-        Load More Discoveries
-      </button>
-
-      <!-- Footer -->
       <footer class="footer">
-        <p>Data source: <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank">NASA Exoplanet Archive</a></p>
+        <p>Veri kaynağı: <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank">NASA Ötegezegen Arşivi</a></p>
       </footer>
     </div>
-
-    <script>
-      // Configuration
-      const ITEMS_PER_PAGE = 12;
-      let currentPage = 0;
-      let allDiscoveries = [];
-
-      // DOM Elements
-      const loadingContainer = document.getElementById("loadingContainer");
-      const errorContainer = document.getElementById("errorContainer");
-      const errorText = document.getElementById("errorText");
-      const retryBtn = document.getElementById("retryBtn");
-      const discoveriesGrid = document.getElementById("discoveriesGrid");
-      const loadMoreBtn = document.getElementById("loadMoreBtn");
-      const totalDiscoveries = document.getElementById("totalDiscoveries");
-
-      // Load discoveries from JSON file
-      async function loadDiscoveries() {
-        try {
-          showLoading();
-          hideError();
-
-          const response = await fetch("../JSON/discoveries.json");
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-          
-          if (!data || !Array.isArray(data) || data.length === 0) {
-            throw new Error("No discoveries found in the data file");
-          }
-
-          allDiscoveries = data;
-
-          // Update stats
-          totalDiscoveries.textContent = allDiscoveries.length;
-          const now = new Date();
-
-          displayDiscoveries();
-          hideLoading();
-
-        } catch (error) {
-          console.error("Error loading discoveries:", error);
-          showError(error.message || "Failed to load discoveries. Please try again.");
-          hideLoading();
-        }
-      }
-
-      // Display discoveries in grid
-      function displayDiscoveries() {
-        const startIndex = currentPage * ITEMS_PER_PAGE;
-        const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, allDiscoveries.length);
-        const discoveriesToShow = allDiscoveries.slice(startIndex, endIndex);
-
-        discoveriesToShow.forEach((discovery, index) => {
-          const card = createDiscoveryCard(discovery);
-          // Stagger animation delays for visual effect
-          card.style.animationDelay = `${index * 0.1}s`;
-          discoveriesGrid.appendChild(card);
-        });
-
-        // Show/hide load more button
-        if (endIndex < allDiscoveries.length) {
-          loadMoreBtn.style.display = "block";
-        } else {
-          loadMoreBtn.style.display = "none";
-        }
-      }
-
-      // Create a discovery card
-      function createDiscoveryCard(discovery) {
-        const card = document.createElement("div");
-        card.className = "discovery-card";
-        
-        // Determine card color based on discovery year (recent = brighter)
-        const year = parseInt(discovery.discoveryYear) || 2000;
-        const isRecent = year >= 2023;
-        const cardClass = isRecent ? "recent" : year >= 2020 ? "modern" : "classic";
-        
-        card.innerHTML = `
-          <div class="card-header ${cardClass}">
-            <h3 class="planet-name">${escapeHtml(discovery.name)}</h3>
-            <span class="discovery-year">${escapeHtml(discovery.discoveryYear)}</span>
-          </div>
-          <div class="card-body">
-            ${discovery.description ? `
-            <div class="card-description">
-              ${escapeHtml(discovery.description)}
-            </div>
-            ` : ''}
-            <div class="info-grid">
-              <div class="info-row">
-                <span class="info-label">Host Star:</span>
-                <span class="info-value">${escapeHtml(discovery.hostname)}</span>
-              </div>
-              <div class="info-row">
-                <span class="info-label">Discovery Method:</span>
-                <span class="info-value">${escapeHtml(discovery.discoveryMethod)}</span>
-              </div>
-              <div class="info-row">
-                <span class="info-label">Orbital Period:</span>
-                <span class="info-value">${escapeHtml(discovery.orbitalPeriod)}</span>
-              </div>
-              ${discovery.radius !== "N/A" ? `
-              <div class="info-row">
-                <span class="info-label">Radius:</span>
-                <span class="info-value">${escapeHtml(discovery.radius)}</span>
-              </div>
-              ` : ''}
-              ${discovery.mass !== "N/A" ? `
-              <div class="info-row">
-                <span class="info-label">Mass:</span>
-                <span class="info-value">${escapeHtml(discovery.mass)}</span>
-              </div>
-              ` : ''}
-              <div class="info-row">
-                <span class="info-label">Distance:</span>
-                <span class="info-value">${escapeHtml(discovery.distance)}</span>
-              </div>
-              ${discovery.equilibriumTemp !== "N/A" ? `
-              <div class="info-row">
-                <span class="info-label">Equilibrium Temp:</span>
-                <span class="info-value">${escapeHtml(discovery.equilibriumTemp)}</span>
-              </div>
-              ` : ''}
-              ${discovery.orbitalDistance !== "N/A" ? `
-              <div class="info-row">
-                <span class="info-label">Orbital Distance:</span>
-                <span class="info-value">${escapeHtml(discovery.orbitalDistance)}</span>
-              </div>
-              ` : ''}
-            </div>
-          </div>
-        `;
-        return card;
-      }
-
-      // Utility: Escape HTML to prevent XSS
-      function escapeHtml(text) {
-        const div = document.createElement("div");
-        div.textContent = text;
-        return div.innerHTML;
-      }
-
-      // Show/hide loading state
-      function showLoading() {
-        loadingContainer.style.display = "flex";
-      }
-
-      function hideLoading() {
-        loadingContainer.style.display = "none";
-      }
-
-      // Show/hide error state
-      function showError(message) {
-        errorText.textContent = message || "An unknown error occurred while loading discoveries.";
-        errorContainer.style.display = "block";
-      }
-
-      function hideError() {
-        errorContainer.style.display = "none";
-      }
-
-      // Load more discoveries
-      function loadMore() {
-        currentPage++;
-        displayDiscoveries();
-        // Scroll to top of new items
-        loadMoreBtn.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      // Event listeners
-      retryBtn.addEventListener("click", () => {
-        currentPage = 0;
-        discoveriesGrid.innerHTML = "";
-        loadDiscoveries();
-      });
-
-      loadMoreBtn.addEventListener("click", loadMore);
-
-      // Initialize: Load discoveries on page load
-      loadDiscoveries();
-    </script>
   </body>
 </html>

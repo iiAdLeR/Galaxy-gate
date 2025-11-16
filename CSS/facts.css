@@ -1,81 +1,66 @@
-/* Planets page specific styles */
+/* Facts page specific styles */
 
-.container {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+.facts-container {
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 2rem;
-  z-index: 2;
 }
 
-.page-title {
+.facts-header {
   text-align: center;
-  color: #e0c341;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-.planets-grid {
+.facts-header h1 {
+  color: #e0c341;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.facts-header p {
+  color: #c3c6f2;
+  font-size: 1.1rem;
+}
+
+.facts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  margin-bottom: 3rem;
 }
 
-.planet-card {
+.fact-card {
   background: rgba(12, 14, 28, 0.85);
   border-radius: 1rem;
   padding: 2rem;
-  text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.planet-card:hover {
+.fact-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 30px 80px rgba(224, 195, 65, 0.2);
 }
 
-.planet-card h2 {
+.fact-card .fact-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.fact-card h3 {
   color: #e0c341;
   margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
 }
 
-.planet-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-
-.stat {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid rgba(195, 198, 242, 0.1);
-}
-
-.stat-label {
-  color: #c3c6f2;
-  font-size: 0.9rem;
-}
-
-.stat-value {
-  color: #f3f5ff;
-  font-weight: bold;
-}
-
-.planet-description {
+.fact-card p {
   color: #c3c6f2;
   line-height: 1.6;
-  margin-top: 1rem;
+  text-align: center;
 }
 
 .back-link-wrapper {
@@ -98,4 +83,16 @@
 
 .back-link:hover {
   background: #f5d861;
+}
+
+.facts-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(12, 14, 28, 0.85);
+  border-radius: 1rem;
+}
+
+.facts-footer p {
+  color: #c3c6f2;
 }

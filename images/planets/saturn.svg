@@ -1,0 +1,22 @@
+<svg width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="saturnGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FAD961" />
+      <stop offset="65%" stop-color="#F76B1C" />
+      <stop offset="100%" stop-color="#CB4335" />
+    </radialGradient>
+    <radialGradient id="saturnGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(250, 217, 97, 0.45)" />
+      <stop offset="100%" stop-color="rgba(247, 107, 28, 0)" />
+    </radialGradient>
+    <linearGradient id="ringGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="rgba(255, 218, 128, 0.6)" />
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 0.35)" />
+      <stop offset="100%" stop-color="rgba(255, 210, 90, 0.5)" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="160" cy="125" rx="150" ry="90" fill="url(#saturnGlow)" opacity="0.6" />
+  <ellipse cx="160" cy="120" rx="110" ry="90" fill="url(#saturnGradient)" />
+  <ellipse cx="160" cy="130" rx="160" ry="60" fill="url(#ringGradient)" opacity="0.7" />
+  <ellipse cx="160" cy="128" rx="146" ry="50" fill="url(#ringGradient)" opacity="0.5" />
+</svg>

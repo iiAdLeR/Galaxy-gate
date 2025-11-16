@@ -3,335 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galaxy Gate</title>
+    <title>Gezegenler - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/planets.css" />
   </head>
   <body>
     <div class="stars"></div>
+    <div class="back-link-wrapper">
+      <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
     <div class="container">
-      <!-- Navigation Arrows -->
-      <button class="nav-arrow left" id="prevPlanet">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15 18L9 12L15 6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-
-      <button class="nav-arrow right" id="nextPlanet">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 18L15 12L9 6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-
-      <!-- Planet Container -->
-      <div class="planet-container">
-        <video id="planetVideo" class="planet-video" preload="metadata" autoplay loop muted playsinline></video>
-        <img id="planetGif" class="planet-gif" alt="Planet animation" />
-      </div>
-
-      <!-- Planet Info Card -->
-      <div class="info-card">
-        <h1 class="planet-name" id="planetName">Mercury</h1>
-        <div class="planet-stats">
-          <div class="stat">
-            <span class="stat-label">DIAMETER</span>
-            <span class="stat-value" id="planetDiameter">4,879 km</span>
+      <h1 class="page-title">Güneş Sistemi Gezegenleri</h1>
+      
+      <div class="planets-grid">
+        <div class="planet-card">
+          <h2>Merkür</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">4,879 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">57.9 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">59 gün</span>
+            </div>
           </div>
-          <div class="stat">
-            <span class="stat-label">DISTANCE TO SUN</span>
-            <span class="stat-value" id="planetDistance">57.9 million km</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">DAY LENGTH</span>
-            <span class="stat-value" id="planetDay">59 days</span>
-          </div>
+          <p class="planet-description">Merkür, Güneş'e en yakın gezegen, hızlı hareketi ve yoğun yapısıyla öne çıkar. Güneş sistemindeki en küçük gezegen olmasına rağmen, demir çekirdeği oldukça büyüktür.</p>
         </div>
-        <p class="planet-description" id="planetDescription">
-          Mercury, the closest planet to the Sun, stands out with its rapid
-          movement and dense structure. Although it is the smallest planet in
-          the solar system, its iron core is quite large.
-        </p>
-      </div>
 
-      <!-- Planet Indicators -->
-      <div class="planet-indicators">
-        <div class="indicator active" data-planet="0"></div>
-        <div class="indicator" data-planet="1"></div>
-        <div class="indicator" data-planet="2"></div>
-        <div class="indicator" data-planet="3"></div>
-        <div class="indicator" data-planet="4"></div>
-        <div class="indicator" data-planet="5"></div>
-        <div class="indicator" data-planet="6"></div>
-        <div class="indicator" data-planet="7"></div>
+        <div class="planet-card">
+          <h2>Venüs</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">12,104 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">108.2 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">243 gün</span>
+            </div>
+          </div>
+          <p class="planet-description">Venüs, Güneş sistemindeki en sıcak gezegen, yoğun atmosferi ve sera etkisiyle bilinir. Yüzeyi kurşunu eritecek kadar sıcaktır.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Dünya</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">12,756 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">149.6 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">24 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Dünya, evimiz, yaşam barındıran tek gezegen olarak bilinir. Okyanusları, atmosferi ve çeşitli ekosistemleriyle benzersizdir.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Mars</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">6,792 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">227.9 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">24.6 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Mars, kırmızı gezegen olarak bilinir, gelecekteki insan kolonileri için en umut verici gezegendir. Kutup buzulları ve eski su kanalları bulunmuştur.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Jüpiter</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">142,984 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">778.5 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">9.9 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Jüpiter, Güneş sistemindeki en büyük gezegen, bir gaz devi olarak bilinir. Büyük Kırmızı Lekesi ve 79 uydusuyla öne çıkar.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Satürn</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">120,536 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">1.43 milyar km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">10.7 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Satürn, halkalarıyla ünlü, Güneş sistemindeki en güzel gezegenlerden biridir. Yoğunluğu sudan az olan tek gezegendir.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Uranüs</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">51,118 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">2.87 milyar km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">17.2 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Uranüs, yan yatık gezegen olarak bilinir, 98 derece eğik bir eksene sahiptir. Mavi-yeşil rengi metan gazından gelir.</p>
+        </div>
+
+        <div class="planet-card">
+          <h2>Neptün</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">49,528 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">4.5 milyar km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">16.1 saat</span>
+            </div>
+          </div>
+          <p class="planet-description">Neptün, Güneş sistemindeki en uzak gezegen, güçlü rüzgarları ve koyu mavi rengiyle bilinir. Rüzgar hızları 2,100 km/saat'e ulaşır.</p>
+        </div>
       </div>
     </div>
-
-    <script>
-      // Gezegen verileri JSON dosyasından yüklenecek
-      let planets = [];
-      let currentPlanetIndex = 0;
-
-      // DOM elementleri
-      const planetVideo = document.getElementById("planetVideo");
-      const planetGif = document.getElementById("planetGif");
-      const planetName = document.getElementById("planetName");
-      const planetDiameter = document.getElementById("planetDiameter");
-      const planetDistance = document.getElementById("planetDistance");
-      const planetDay = document.getElementById("planetDay");
-      const planetDescription = document.getElementById("planetDescription");
-      const planetRings = document.getElementById("planetRings");
-      const indicators = document.querySelectorAll(".indicator");
-      const navigationArrows = document.querySelectorAll(".nav-arrow");
-      const planetInfoCard = document.querySelector(".info-card");
-      const planetContainer = document.querySelector(".planet-container");
-
-      // JSON dosyasından gezegen verilerini yükle
-      async function loadPlanets() {
-        try {
-          const response = await fetch("../JSON/planets.json");
-          planets = await response.json();
-          updatePlanet(0);
-        } catch (error) {
-          console.error("Gezegen verileri yüklenirken hata oluştu:", error);
-          navigationArrows.forEach((arrow) => (arrow.style.display = "none"));
-          planetInfoCard.style.display = "none";
-          planetContainer.style.display = "none";
-          indicators.forEach((indicator) => (indicator.style.display = "none"));
-          const displayError = document.createElement("div");
-          displayError.className = "error-message";
-          displayError.innerHTML =
-            "<h1>Gezegenler yüklenirken bir hata oluştu</h1>";
-          document.body.appendChild(displayError);
-        }
-      }
-
-      // Yardımcılar: tek video render sistemi
-      function stopAndUnloadVideo() {
-        try {
-          planetVideo.pause();
-        } catch (e) {}
-        planetVideo.removeAttribute("src");
-        planetVideo.load(); // frees decoder/memory on most browsers
-      }
-
-      function setVideoSourceAndPlay(src) {
-        stopAndUnloadVideo();
-        planetVideo.src = src;
-        // Lazy play when ready and visible
-        const playIfVisible = () => {
-          if (!isVideoVisible) return;
-          const p = planetVideo.play();
-          if (p && typeof p.then === "function") p.catch(() => {});
-        };
-        planetVideo.oncanplay = () => {
-          planetVideo.oncanplay = null;
-          playIfVisible();
-        };
-        // Fallback start on idle
-        if (window.requestIdleCallback) requestIdleCallback(playIfVisible, { timeout: 800 });
-        else setTimeout(playIfVisible, 120);
-      }
-
-      let isVideoVisible = true;
-
-      // Gezegen güncelleme fonksiyonu
-      function updatePlanet(index) {
-        if (!planets[index]) return;
-
-        const planet = planets[index];
-
-        // Geçiş animasyonu başlat
-        startTransition();
-
-         // Çıkış animasyonundan sonra içeriği güncelle (metin fade-out: ~600ms)
-         setTimeout(() => {
-          // Video kaynağını ayarla, yoksa gizle
-          const lowerName = planet.name.toLowerCase();
-          let filename = null;
-          if (lowerName === "mercury") filename = "Mercury.mp4";
-          else if (lowerName === "venus") filename = "Venus.mp4";
-          else if (lowerName === "earth") filename = "Earth.mp4";
-          else if (lowerName === "mars") filename = "Mars.mp4";
-          else if (lowerName === "jupiter") filename = "Jupiter.mp4";
-          else if (lowerName === "saturn") filename = "Saturn.mp4";
-          else if (lowerName === "uranus") filename = "Uranus.mp4";
-          else if (lowerName === "neptune") filename = "Neptun.mp4"; // dosya adı "Neptun.mp4"
-
-          if (lowerName === "saturn") {
-            // Sadece Saturn GIF kullanılacak
-            stopAndUnloadVideo();
-            planetVideo.style.display = "none";
-            planetGif.src = "../3D Planets/Saturn.gif";
-            planetGif.style.display = "block";
-            // Satürn için crop olmasın: maske kaldır, içerik contain
-            planetContainer.classList.add("no-mask");
-            planetGif.classList.add("no-crop", "saturn-large");
-          } else if (filename) {
-            setVideoSourceAndPlay(`../3D Planets/${filename}`);
-            planetVideo.style.display = "block";
-            planetGif.removeAttribute("src");
-            planetGif.style.display = "none";
-            // Diğer gezegenlerde maskeyi geri getir
-            planetContainer.classList.remove("no-mask");
-            planetGif.classList.remove("no-crop", "saturn-large");
-          } else {
-            stopAndUnloadVideo();
-            planetVideo.style.display = "none";
-            planetGif.removeAttribute("src");
-            planetGif.style.display = "none";
-            planetContainer.classList.remove("no-mask");
-            planetGif.classList.remove("no-crop", "saturn-large");
-          }
-
-          // Video kırpma ayarlarını uygula (JSON'daki videoCrop)
-          const crop = planet.videoCrop || { scale: 1, offsetX: 0, offsetY: 0 };
-          planetVideo.style.setProperty("--video-scale", crop.scale);
-          planetVideo.style.setProperty("--video-offset-x", crop.offsetX + "%");
-          planetVideo.style.setProperty("--video-offset-y", crop.offsetY + "%");
-
-          // Bilgileri güncelle
-          planetName.textContent = planet.name;
-          planetDiameter.textContent = planet.diameter;
-          planetDistance.textContent = planet.distance;
-          planetDay.textContent = planet.dayLength;
-          planetDescription.textContent = planet.description;
-
-          // Göstergeleri güncelle
-          indicators.forEach((indicator, i) => {
-            indicator.classList.toggle("active", i === index);
-          });
-
-           // Geçiş animasyonunu bitir
-           endTransition();
-         }, 700);
-      }
-
-      // Geçiş animasyonu başlatma (yalnızca metinler)
-      function startTransition() {
-        planetName.classList.add("transitioning");
-        planetDiameter.classList.add("transitioning");
-        planetDistance.classList.add("transitioning");
-        planetDay.classList.add("transitioning");
-        planetDescription.classList.add("transitioning");
-      }
-
-      // Geçiş animasyonu bitirme (yalnızca metinler)
-      function endTransition() {
-        setTimeout(() => {
-          // Eski transitioning class'ları kaldır
-          planetName.classList.remove("transitioning");
-          planetDiameter.classList.remove("transitioning");
-          planetDistance.classList.remove("transitioning");
-          planetDay.classList.remove("transitioning");
-          planetDescription.classList.remove("transitioning");
-
-          // Yeni entering animasyonlarını başlat
-          planetName.classList.add("entering");
-          planetDiameter.classList.add("entering");
-          planetDistance.classList.add("entering");
-          planetDay.classList.add("entering");
-          planetDescription.classList.add("entering");
-
-          // Entering animasyonlarını temizle
-          setTimeout(() => {
-            planetName.classList.remove("entering");
-            planetDiameter.classList.remove("entering");
-            planetDistance.classList.remove("entering");
-            planetDay.classList.remove("entering");
-            planetDescription.classList.remove("entering");
-          }, 1200);
-        }, 100);
-      }
-
-      // Sonraki gezegen
-      function nextPlanet() {
-        currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
-        updatePlanet(currentPlanetIndex);
-      }
-
-      // Önceki gezegen
-      function prevPlanet() {
-        currentPlanetIndex =
-          (currentPlanetIndex - 1 + planets.length) % planets.length;
-        updatePlanet(currentPlanetIndex);
-      }
-
-      // Event listeners
-      document
-        .getElementById("nextPlanet")
-        .addEventListener("click", nextPlanet);
-      document
-        .getElementById("prevPlanet")
-        .addEventListener("click", prevPlanet);
-
-      // Gösterge tıklama
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => {
-          currentPlanetIndex = index;
-          updatePlanet(currentPlanetIndex);
-        });
-      });
-
-      // Klavye navigasyonu
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") {
-          prevPlanet();
-        } else if (e.key === "ArrowRight") {
-          nextPlanet();
-        }
-      });
-
-      // IntersectionObserver ile görünürlük kontrolü
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          isVideoVisible = entry.isIntersecting && entry.intersectionRatio > 0;
-          if (!isVideoVisible) {
-            try { planetVideo.pause(); } catch (e) {}
-          } else {
-            if (planetVideo.src) {
-              const p = planetVideo.play();
-              if (p && typeof p.then === "function") p.catch(() => {});
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-      io.observe(planetContainer);
-
-      // Sekme gizlenince durdur, geri gelince devam et
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          try { planetVideo.pause(); } catch (e) {}
-        } else if (isVideoVisible && planetVideo.src) {
-          const p = planetVideo.play();
-          if (p && typeof p.then === "function") p.catch(() => {});
-        }
-      });
-
-      // Sayfa yüklendiğinde gezegen verilerini yükle
-      loadPlanets();
-    </script>
   </body>
 </html>
