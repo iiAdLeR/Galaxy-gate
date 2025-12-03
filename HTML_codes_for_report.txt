@@ -1,0 +1,364 @@
+==========================================
+أكواد HTML للمشروع - نسخة مختصرة للتقرير
+==========================================
+
+ملاحظة: تم اختصار الأكواد المتكررة لتوفير المساحة.
+الأكواد الكاملة متوفرة في ملفات المشروع.
+
+==========================================
+1. index.html (الصفحة الرئيسية - كاملة)
+==========================================
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galaxy Gate</title>
+    <link rel="stylesheet" href="CSS/home.css">
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="top-bar__brand">Galaxy Gate</div>
+      <nav class="top-bar__nav">
+        <a href="#hero">Ana Sayfa</a>
+        <a href="#astronauts">Astronotlar</a>
+        <a href="#planets">Gezegenler</a>
+        <a href="#discoveries">Keşifler</a>
+        <a href="#facts">İlginç Gerçekler</a>
+      </nav>
+    </header>
+
+    <main class="sections">
+      <section id="hero" class="gg-section gg-section--hero is-active">
+        <div class="section-inner">
+          <div class="hero-backdrop">
+            <div class="hero-backdrop__gradient"></div>
+            <div class="hero-backdrop__stars"></div>
+            <img src="images/planets/backdrop-blue.svg" alt="Mavi gezegen" class="hero-backdrop__planet hero-backdrop__planet--blue">
+            <img src="images/planets/backdrop-red.svg" alt="Kırmızı gezegen" class="hero-backdrop__planet hero-backdrop__planet--red">
+          </div>
+          <div class="hero-background"></div>
+          <div class="hero-sky"></div>
+          <div class="hero-stars"></div>
+          <div class="hero-celestials">
+            <img src="images/planets/earth.svg" alt="Dünya" class="hero-planet hero-planet--earth">
+            <img src="images/planets/mars.svg" alt="Mars" class="hero-planet hero-planet--mars">
+            <img src="images/planets/saturn.svg" alt="Satürn" class="hero-planet hero-planet--saturn">
+          </div>
+          <div class="section-content">
+            <h1>Galaxy Gate'i Keşfedin</h1>
+            <p>Öne çıkan astronotlar, canlı dünyalar, çığır açan keşifler ve interaktif zorluklar aracılığıyla sorunsuz bir yolculuğa başlayın.</p>
+            <div class="cta-row">
+              <a href="#astronauts" class="cta">Keşfetmeye Başla</a>
+              <a href="HTML/planets.html" class="cta cta--secondary">Gezegenleri Keşfet</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="astronauts" class="gg-section feature-section">
+        <div class="feature-content">
+          <h2 class="section-title">Astronotlar</h2>
+          <p class="section-subtitle">Uzayı keşfeden cesur kaşifleri tanıyın</p>
+          
+          <div class="astronauts-preview">
+            <div class="astronaut-preview-card">
+              <img src="images/astronauts/neil-armstrong.jpg" alt="Neil Armstrong">
+              <div class="card-info">
+                <h4>Neil Armstrong</h4>
+                <p>Ay'da yürüyen ilk kişi</p>
+              </div>
+            </div>
+            <!-- ... باقي بطاقات Astronotlar مشابهة ... -->
+          </div>
+          
+          <div class="cta-center">
+            <a href="HTML/astronauts.html" class="cta">Tüm Astronotları Gör</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="planets" class="gg-section feature-section">
+        <div class="feature-content">
+          <h2 class="section-title">Gezegenler</h2>
+          <p class="section-subtitle">Güneş sistemimizdeki sekiz gezegeni keşfedin</p>
+          
+          <div class="planets-preview">
+            <div class="planet-preview-item">
+              <span class="planet-icon">☿️</span>
+              <h4>Merkür</h4>
+              <p>En yakın gezegen</p>
+            </div>
+            <!-- ... باقي Gezegenler مشابهة ... -->
+          </div>
+          
+          <div class="cta-center">
+            <a href="HTML/planets.html" class="cta">Tüm Gezegenleri Keşfet</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="discoveries" class="gg-section feature-section">
+        <div class="feature-content">
+          <h2 class="section-title">Keşifler</h2>
+          <p class="section-subtitle">NASA'nın ötegezegen keşiflerini keşfedin</p>
+          
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3>Proxima Centauri b</h3>
+              <p>Dünya'ya sadece 4.2 ışık yılı uzaklıkta bilinen en yakın ötegezegen, potansiyel olarak yaşanabilir kayalık dünya.</p>
+              <a href="HTML/discoveries.html">Daha Fazla Bilgi</a>
+            </div>
+            <!-- ... باقي Keşifler مشابهة ... -->
+          </div>
+        </div>
+      </section>
+
+      <section id="facts" class="gg-section feature-section">
+        <div class="feature-content">
+          <h2 class="section-title">İlginç Gerçekler</h2>
+          <p class="section-subtitle">Uzayın büyüleyici dünyasından şaşırtıcı bilgiler keşfedin</p>
+          
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3>🌍 Dünya'nın Hızı</h3>
+              <p>Dünya, Güneş etrafında saatte yaklaşık 107,000 km hızla dönüyor. Bu, bir jet uçağından 30 kat daha hızlı!</p>
+              <a href="HTML/facts.html">Daha Fazla Bilgi</a>
+            </div>
+            <!-- ... باقي Gerçekler مشابهة ... -->
+          </div>
+        </div>
+      </section>
+
+      <section id="footer" class="gg-section">
+        <div class="section-inner section-inner--foot">
+          <div class="section-content">
+            <h2 class="footer-heading">Galaxy Gate</h2>
+            <p class="footer-description">Uzay meraklıları ve meraklı zihinler için hafif bir destinasyon. Canlı arşivlere, canlı gezegen turlarına ve interaktif zorluklara dalın.</p>
+            <p class="footer-links">
+              <a href="HTML/astronauts.html">Astronotlar</a>
+              <a href="HTML/planets.html">Gezegenler</a>
+              <a href="HTML/discoveries.html">Keşifler</a>
+              <a href="HTML/facts.html">İlginç Gerçekler</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+==========================================
+2. planets.html (مختصر - الهيكل الأساسي + مثال)
+==========================================
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gezegenler - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/planets.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="back-link-wrapper">
+      <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
+    <div class="container">
+      <h1 class="page-title">Güneş Sistemi Gezegenleri</h1>
+      
+      <div class="planets-grid">
+        <div class="planet-card">
+          <h2>Merkür</h2>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-label">Çap</span>
+              <span class="stat-value">4,879 km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Güneş'e Uzaklık</span>
+              <span class="stat-value">57.9 milyon km</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Gün Uzunluğu</span>
+              <span class="stat-value">59 gün</span>
+            </div>
+          </div>
+          <p class="planet-description">Merkür, Güneş'e en yakın gezegen, hızlı hareketi ve yoğun yapısıyla öne çıkar.</p>
+        </div>
+        <!-- ... باقي 7 Gezegenات (Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün) بنفس البنية ... -->
+      </div>
+    </div>
+  </body>
+</html>
+
+==========================================
+3. astronauts.html (مختصر - الهيكل الأساسي + مثال)
+==========================================
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Astronotlar - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/astronauts.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <header class="page-header">
+      <div class="page-header__inner">
+        <a class="brand" href="../index.html">Galaxy Gate</a>
+        <nav>
+          <a href="../index.html">Ana Sayfa</a>
+          <a href="planets.html">Gezegenler</a>
+          <a href="discoveries.html">Keşifler</a>
+          <a href="facts.html">İlginç Gerçekler</a>
+        </nav>
+      </div>
+      <div class="page-header__hero">
+        <h1>Astronot Listesi</h1>
+        <p>Dinamik bir kaşif koleksiyonunu gözden geçirin</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="back-link-wrapper">
+        <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
+      </div>
+      <section class="list-wrapper">
+        <div class="astronauts-grid">
+          <article class="card">
+            <img src="../images/astronauts/neil-armstrong.jpg" alt="Neil Armstrong">
+            <div class="card-content">
+              <h3>Neil Armstrong</h3>
+              <div class="card-meta">ABD | 2 görev</div>
+              <p class="card-bio">Apollo 11 sırasında Ay'da yürüyen ilk kişi, test pilotu ve havacılık mühendisi.</p>
+            </div>
+          </article>
+          <!-- ... باقي بطاقات Astronotlar (20+ بطاقة) بنفس البنية ... -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Galaxy Gate — her uzay hayranı için hızlı bilgiler.</p>
+    </footer>
+  </body>
+</html>
+
+==========================================
+4. discoveries.html (مختصر - الهيكل الأساسي + مثال)
+==========================================
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA Ötegezegen Keşifleri - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/discoveries.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="back-link-wrapper">
+      <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
+    <div class="container">
+      <header class="header">
+        <h1 class="main-title">NASA Ötegezegen Keşifleri</h1>
+        <p class="subtitle">NASA'nın Ötegezegen Arşivi'nden en son keşifler</p>
+      </header>
+
+      <div class="discoveries-grid">
+        <div class="discovery-card">
+          <h3>Proxima Centauri b</h3>
+          <div class="discovery-host">Yıldız: Proxima Centauri</div>
+          <div class="discovery-stats">
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yörünge Periyodu</span>
+              <span class="discovery-stat-value">11.19 gün</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Yarıçap</span>
+              <span class="discovery-stat-value">1.07 Dünya</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Mesafe</span>
+              <span class="discovery-stat-value">1.3 parsek</span>
+            </div>
+            <div class="discovery-stat">
+              <span class="discovery-stat-label">Keşif Yılı</span>
+              <span class="discovery-stat-value">2016</span>
+            </div>
+          </div>
+          <p class="discovery-description">Dünya'ya sadece 4.2 ışık yılı uzaklıkta bilinen en yakın ötegezegen.</p>
+        </div>
+        <!-- ... باقي بطاقات Keşifler (5+ بطاقة) بنفس البنية ... -->
+      </div>
+
+      <footer class="footer">
+        <p>Veri kaynağı: <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank">NASA Ötegezegen Arşivi</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+==========================================
+5. facts.html (مختصر - الهيكل الأساسي + مثال)
+==========================================
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uzay Hakkında İlginç Gerçekler - Galaxy Gate</title>
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/facts.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="back-link-wrapper">
+      <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
+    <main class="facts-container">
+      <header class="facts-header">
+        <h1>🌌 Uzay Hakkında İlginç Gerçekler</h1>
+        <p>Uzayın büyüleyici dünyasından şaşırtıcı bilgiler</p>
+      </header>
+
+      <section class="facts-grid">
+        <div class="fact-card">
+          <span class="fact-icon">🌍</span>
+          <h3>Dünya'nın Hızı</h3>
+          <p>Dünya, Güneş etrafında saatte yaklaşık 107,000 km hızla dönüyor. Bu, bir jet uçağından 30 kat daha hızlı!</p>
+        </div>
+        <!-- ... باقي بطاقات Gerçekler (11+ بطاقة) بنفس البنية ... -->
+      </section>
+
+      <footer class="facts-footer">
+        <p>Uzayın büyüleyici dünyasını keşfetmeye devam edin! 🚀</p>
+      </footer>
+    </main>
+  </body>
+</html>
+
+==========================================
+ملاحظات مهمة:
+==========================================
+1. تم اختصار الأكواد المتكررة لتوفير المساحة
+2. index.html كامل لأنه الصفحة الرئيسية
+3. باقي الصفحات: الهيكل الأساسي + مثال واحد فقط
+4. جميع الصفحات تستخدم نفس البنية مع اختلاف المحتوى
+5. الأكواد الكاملة متوفرة في ملفات المشروع
+
+==========================================
+
+
+

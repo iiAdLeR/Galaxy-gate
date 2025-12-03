@@ -124,9 +124,9 @@ button:focus-visible {
 
 .sections {
   position: relative;
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  width: 100%;
+  overflow-y: visible;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
   padding-left: 0;
   perspective: 1200px;
