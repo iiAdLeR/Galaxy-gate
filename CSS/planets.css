@@ -99,3 +99,96 @@
 .back-link:hover {
   background: #f5d861;
 }
+
+/* Responsive styles */
+@media (max-width: 780px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .planets-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .planet-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .planet-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .planet-stats {
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .stat {
+    padding: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .stat-value {
+    font-size: 0.9rem;
+  }
+
+  .planet-description {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+
+  .back-link-wrapper {
+    padding: 1rem;
+  }
+
+  .back-link {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .planets-grid {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .planet-card {
+    padding: 1.25rem;
+  }
+
+  .planet-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .stat-label,
+  .stat-value {
+    font-size: 0.8rem;
+  }
+
+  .planet-description {
+    font-size: 0.85rem;
+  }
+}

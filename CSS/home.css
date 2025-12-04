@@ -285,39 +285,286 @@ button:focus-visible {
   }
 }
 
+/* Tablet and smaller desktop */
 @media (max-width: 1100px) {
   .sections {
     padding-left: 0;
   }
+
+  .section-inner {
+    padding: clamp(1.5rem, 3vh, 2.5rem);
+  }
+
+  .feature-content {
+    padding: 0 1rem;
+  }
 }
 
+/* Mobile and small tablets */
 @media (max-width: 780px) {
   body {
     overflow: auto;
   }
 
   .top-bar {
-    padding: 0.65rem 1.2rem;
-    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
   }
 
+  .top-bar__brand {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+
   .top-bar__nav {
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .top-bar__nav a {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    flex: 1 1 auto;
+    min-width: calc(50% - 0.25rem);
+    text-align: center;
   }
 
   .sections {
     height: auto;
     overflow: visible;
     perspective: none;
+    scroll-snap-type: none;
   }
 
   .gg-section {
     min-height: auto;
-    padding: 6rem 1.8rem 3rem;
+    padding: 5rem 1rem 2rem;
     transform: none !important;
     opacity: 1 !important;
+  }
+
+  .gg-section:first-of-type {
+    padding-top: calc(8rem + var(--top-offset));
+  }
+
+  .feature-section {
+    padding: 4rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .section-inner {
+    padding: clamp(1.5rem, 4vh, 2rem);
+    border-radius: 20px;
+    gap: 1.5rem;
+  }
+
+  .section-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  .section-content p {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.6;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .feature-content {
+    padding: 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+
+  .astronauts-preview {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .astronaut-preview-card img {
+    height: 200px;
+  }
+
+  .astronaut-preview-card .card-info {
+    padding: 0.75rem;
+  }
+
+  .astronaut-preview-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .astronaut-preview-card p {
+    font-size: 0.8rem;
+  }
+
+  .planets-preview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .planet-preview-item {
+    padding: 1rem;
+  }
+
+  .planet-preview-item .planet-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .planet-preview-item h4 {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .planet-preview-item p {
+    font-size: 0.75rem;
+  }
+
+  /* إخفاء الكواكب على الهاتف لتجنب تغطية النصوص */
+  .hero-celestials {
+    display: none;
+  }
+
+  .hero-backdrop__planet {
+    display: none;
+  }
+
+  /* تقليل تأثير الخلفية على الهاتف */
+  .hero-backdrop__gradient {
+    opacity: 0.3;
+  }
+
+  .hero-backdrop__stars {
+    opacity: 0.2;
+  }
+
+  .section-inner--foot {
+    padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: 24px;
+  }
+
+  .footer-heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .footer-description {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    max-width: 100%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .footer-links a {
+    font-size: 0.95rem;
+  }
+
+  .cta-center {
+    margin-top: 2rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .top-bar__brand {
+    font-size: 0.8rem;
+  }
+
+  .top-bar__nav {
+    font-size: 0.75rem;
+  }
+
+  .top-bar__nav a {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .gg-section {
+    padding: 4.5rem 0.75rem 1.5rem;
+  }
+
+  .gg-section:first-of-type {
+    padding-top: calc(7rem + var(--top-offset));
+  }
+
+  .feature-section {
+    padding: 3.5rem 0.75rem 1.5rem;
+  }
+
+  .section-inner {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .planets-preview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .astronauts-preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .feature-grid {
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    padding: 1.25rem;
   }
 }
 

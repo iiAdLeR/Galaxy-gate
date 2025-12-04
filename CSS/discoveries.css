@@ -158,27 +158,118 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
   .main-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    margin-bottom: 0.75rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    margin-bottom: 1.5rem;
   }
 
   .discoveries-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .discovery-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .discovery-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .discovery-host {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .discovery-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .discovery-stat {
+    padding: 0.6rem;
+  }
+
+  .discovery-stat-label {
+    font-size: 0.8rem;
+  }
+
+  .discovery-stat-value {
+    font-size: 1rem;
+  }
+
+  .discovery-description {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .footer {
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .back-link-wrapper {
+    padding: 1rem;
+  }
+
+  .back-link {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 20px 15px;
+    padding: 1rem 0.75rem;
   }
 
   .main-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .discoveries-grid {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .discovery-card {
+    padding: 1.25rem;
+  }
+
+  .discovery-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .discovery-host {
+    font-size: 0.95rem;
+  }
+
+  .discovery-stat-label,
+  .discovery-stat-value {
+    font-size: 0.85rem;
+  }
+
+  .discovery-description {
+    font-size: 0.85rem;
   }
 }
