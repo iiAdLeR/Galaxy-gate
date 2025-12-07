@@ -17,13 +17,12 @@
 
 .main-title {
   font-size: 3.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #a0d2ff 50%, #ffffff 100%);
+  font-weight: 600;
+  background: linear-gradient(135deg, #64b5f6 0%, #90caf9 50%, #64b5f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-  text-shadow: 0 0 30px rgba(160, 210, 255, 0.3);
 }
 
 .subtitle {
@@ -42,27 +41,29 @@
 }
 
 .discovery-card {
-  background: rgba(12, 14, 28, 0.85);
-  border-radius: 1rem;
+  background: rgba(20, 23, 35, 0.85);
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .discovery-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 80px rgba(224, 195, 65, 0.2);
+  box-shadow: 0 12px 32px rgba(100, 181, 246, 0.15);
+  background: rgba(24, 27, 42, 0.9);
 }
 
 .discovery-card h3 {
-  color: #e0c341;
+  color: #64b5f6;
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .discovery-host {
-  color: #c3c6f2;
+  color: rgba(232, 234, 246, 0.65);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
@@ -76,29 +77,30 @@
 
 .discovery-stat {
   padding: 0.75rem;
-  background: rgba(7, 9, 18, 0.72);
-  border-radius: 0.5rem;
+  background: rgba(15, 17, 26, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .discovery-stat-label {
-  color: #c3c6f2;
+  color: rgba(232, 234, 246, 0.65);
   font-size: 0.85rem;
   display: block;
   margin-bottom: 0.25rem;
 }
 
 .discovery-stat-value {
-  color: #f3f5ff;
-  font-weight: bold;
+  color: #e8eaf6;
+  font-weight: 600;
   font-size: 1.1rem;
 }
 
 .discovery-description {
-  color: #c3c6f2;
+  color: rgba(232, 234, 246, 0.65);
   line-height: 1.6;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(195, 198, 242, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer {
@@ -115,13 +117,13 @@
 }
 
 .footer a {
-  color: #a0d2ff;
+  color: #64b5f6;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .footer a:hover {
-  color: #ffffff;
+  color: #90caf9;
   text-decoration: underline;
 }
 
@@ -134,17 +136,20 @@
 .back-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #e0c341;
-  color: #050713;
+  background: #64b5f6;
+  color: #0f1118;
   text-decoration: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.25s ease;
+  border: none;
 }
 
 .back-link:hover {
-  background: #f5d861;
+  background: #90caf9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(100, 181, 246, 0.3);
 }
 
 @keyframes fadeInDown {
