@@ -84,12 +84,13 @@ class PlanetsCarousel {
     });
     
     // Planet item clicks - navigate to planets page
-    this.items.forEach((item) => {
+    this.items.forEach((item, index) => {
       item.style.cursor = 'pointer';
       item.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        window.location.href = 'HTML/planets.html';
+        // Pass the planet index to the planets page
+        window.location.href = `HTML/planets.html?planet=${index}`;
       });
     });
     

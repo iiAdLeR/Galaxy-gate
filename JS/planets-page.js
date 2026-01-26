@@ -6,7 +6,12 @@ class PlanetsPageViewer {
     this.indicators = document.querySelectorAll('.planet-indicator');
     this.prevBtn = document.getElementById('prevPlanetBtn');
     this.nextBtn = document.getElementById('nextPlanetBtn');
-    this.currentIndex = 2; // Start with Earth (index 2)
+    
+    // Check if planet index is passed in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const planetIndex = urlParams.get('planet');
+    this.currentIndex = planetIndex !== null ? parseInt(planetIndex) : 2; // Default to Earth (index 2)
+    
     this.isTransitioning = false;
     this.touchStartX = 0;
     this.touchEndX = 0;
