@@ -24,9 +24,40 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--bg);
+  background: #0a0e1a;
   color: var(--text);
   font-family: var(--font-primary);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 60px 70px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 50px 50px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 90px 10px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 10px 90px, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(2px 2px at 120px 150px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 200px 200px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 30px 150px, rgba(255, 255, 255, 0.65), transparent),
+    radial-gradient(1px 1px at 180px 30px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 210px 100px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 40px 200px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 170px 170px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 100px 120px, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(2px 2px at 150px 60px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 70px 190px, rgba(255, 255, 255, 0.8), transparent);
+  background-size: 250px 250px;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  opacity: 1;
+  animation: twinkling 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 a {
@@ -330,6 +361,83 @@ main {
   }
 }
 
+/* Filter Container Styles */
+.filter-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(15, 17, 26, 0.6);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.search-input,
+.country-filter,
+.status-filter {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  background: rgba(20, 23, 35, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  pointer-events: auto !important;
+  cursor: text;
+  z-index: 10;
+  position: relative;
+}
+
+.country-filter,
+.status-filter {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364b5f6' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+.search-input:focus,
+.country-filter:focus,
+.status-filter:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.filter-results {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.card.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -337,5 +445,18 @@ main {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .filter-controls {
+    flex-direction: column;
+  }
+  
+  .search-input,
+  .country-filter,
+  .status-filter {
+    width: 100%;
+    min-width: auto;
   }
 }

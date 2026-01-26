@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="CSS/home.css">
   </head>
   <body>
+    <script src="JS/planets-carousel.js" defer></script>
+    <script src="JS/scroll-sections.js" defer></script>
     <header class="top-bar">
       <div class="top-bar__brand">Galaxy Gate</div>
       <nav class="top-bar__nav">
@@ -93,46 +95,126 @@
           <h2 class="section-title">Gezegenler</h2>
           <p class="section-subtitle">Güneş sistemimizdeki sekiz gezegeni keşfedin</p>
           
-          <div class="planets-preview">
-            <div class="planet-preview-item">
-              <span class="planet-icon">☿️</span>
-              <h4>Merkür</h4>
-              <p>En yakın gezegen</p>
+          <!-- 3D Planets Carousel -->
+          <div class="planets-3d-container">
+            <div class="planets-3d-carousel" id="planetsCarousel">
+              <div class="planet-3d-item" data-planet="mercury">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Mercury.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Merkür</h3>
+                  <p>En yakın gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="venus">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Venus.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Venüs</h3>
+                  <p>En sıcak gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item active" data-planet="earth">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Earth.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Dünya</h3>
+                  <p>Evimiz</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="mars">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Mars.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Mars</h3>
+                  <p>Kırmızı gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="jupiter">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Jupiter.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Jüpiter</h3>
+                  <p>En büyük gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="saturn">
+                <div class="planet-3d-media">
+                  <img src="3D Planets/Saturn.gif" alt="Saturn">
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Satürn</h3>
+                  <p>Halkalı gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="uranus">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Uranus.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Uranüs</h3>
+                  <p>Yan yatık gezegen</p>
+                </div>
+              </div>
+              
+              <div class="planet-3d-item" data-planet="neptune">
+                <div class="planet-3d-media">
+                  <video autoplay loop muted playsinline>
+                    <source src="3D Planets/Neptun.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="planet-3d-info">
+                  <h3>Neptün</h3>
+                  <p>En uzak gezegen</p>
+                </div>
+              </div>
             </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♀️</span>
-              <h4>Venüs</h4>
-              <p>En sıcak gezegen</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">🌍</span>
-              <h4>Dünya</h4>
-              <p>Evimiz</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♂️</span>
-              <h4>Mars</h4>
-              <p>Kırmızı gezegen</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♃</span>
-              <h4>Jüpiter</h4>
-              <p>En büyük gezegen</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♄</span>
-              <h4>Satürn</h4>
-              <p>Halkalı gezegen</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♅</span>
-              <h4>Uranüs</h4>
-              <p>Yan yatık gezegen</p>
-            </div>
-            <div class="planet-preview-item">
-              <span class="planet-icon">♆</span>
-              <h4>Neptün</h4>
-              <p>En uzak gezegen</p>
+            
+            <!-- Navigation Buttons -->
+            <button class="planet-nav-btn planet-nav-prev" id="prevPlanet" aria-label="Önceki gezegen">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="planet-nav-btn planet-nav-next" id="nextPlanet" aria-label="Sonraki gezegen">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+            
+            <!-- Planet Indicators -->
+            <div class="planet-indicators">
+              <button class="planet-indicator" data-index="0" aria-label="Merkür"></button>
+              <button class="planet-indicator" data-index="1" aria-label="Venüs"></button>
+              <button class="planet-indicator active" data-index="2" aria-label="Dünya"></button>
+              <button class="planet-indicator" data-index="3" aria-label="Mars"></button>
+              <button class="planet-indicator" data-index="4" aria-label="Jüpiter"></button>
+              <button class="planet-indicator" data-index="5" aria-label="Satürn"></button>
+              <button class="planet-indicator" data-index="6" aria-label="Uranüs"></button>
+              <button class="planet-indicator" data-index="7" aria-label="Neptün"></button>
             </div>
           </div>
           
@@ -142,7 +224,7 @@
         </div>
       </section>
 
-      <section id="discoveries" class="gg-section feature-section">
+      <section id="discoveries" class="gg-section discoveries-section">
         <div class="feature-content">
           <h2 class="section-title">Keşifler</h2>
           <p class="section-subtitle">NASA'nın ötegezegen keşiflerini keşfedin</p>
@@ -167,7 +249,7 @@
         </div>
       </section>
 
-      <section id="facts" class="gg-section feature-section">
+      <section id="facts" class="gg-section facts-section">
         <div class="feature-content">
           <h2 class="section-title">İlginç Gerçekler</h2>
           <p class="section-subtitle">Uzayın büyüleyici dünyasından şaşırtıcı bilgiler keşfedin</p>

@@ -9,16 +9,42 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:
-    radial-gradient(1200px 800px at 80% -10%, rgba(100, 181, 246, 0.08), transparent 60%),
-    radial-gradient(900px 700px at 10% 120%, rgba(144, 202, 249, 0.06), transparent 60%),
-    radial-gradient(600px 500px at 50% 20%, rgba(100, 181, 246, 0.04), transparent 55%),
-    linear-gradient(180deg, #1a1d2e 0%, #0f1118 35%, #0a0b10 100%);
+  background: #0a0e1a;
   color: #e8eaf6;
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 60px 70px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 50px 50px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 90px 10px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 10px 90px, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(2px 2px at 120px 150px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 200px 200px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 30px 150px, rgba(255, 255, 255, 0.65), transparent),
+    radial-gradient(1px 1px at 180px 30px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 210px 100px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 40px 200px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 170px 170px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 100px 120px, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(2px 2px at 150px 60px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 70px 190px, rgba(255, 255, 255, 0.8), transparent);
+  background-size: 250px 250px;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  opacity: 1;
+  animation: twinkling 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Subtle vignette for cinematic depth */
@@ -27,7 +53,7 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 100%);
+  background: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
@@ -39,15 +65,15 @@ body::after {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1.2px 1.2px at 40px 70px, rgba(255,255,255,0.25), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.28), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.22), transparent),
-    radial-gradient(1.6px 1.6px at 160px 30px, rgba(255,255,255,0.26), transparent);
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 60px 70px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 50px 50px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 90px 10px, rgba(255, 255, 255, 0.75), transparent);
   background-repeat: repeat;
-  background-size: 220px 120px;
-  animation: twinkle 5s ease-in-out infinite alternate;
-  opacity: 0.6;
+  background-size: 250px 250px;
+  animation: twinkling 3s ease-in-out infinite;
+  opacity: 1;
   z-index: 0;
 }
 
@@ -56,17 +82,23 @@ body::after {
   100% { opacity: 1; }
 }
 
+@keyframes twinkling {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
 /* Responsive styles for common elements */
 .back-link-wrapper {
   position: relative;
   z-index: 100;
   padding: 1.5rem;
+  margin-top: 1rem;
 }
 
 .back-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #64b5f6;
+  background: linear-gradient(135deg, #64b5f6 0%, #90caf9 100%);
   color: #0f1118;
   text-decoration: none;
   border-radius: 8px;
@@ -75,12 +107,30 @@ body::after {
   transition: all 0.25s ease;
   font-size: 0.95rem;
   border: none;
+  box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.back-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: left 0.3s ease;
+}
+
+.back-link:hover::before {
+  left: 100%;
 }
 
 .back-link:hover {
-  background: #90caf9;
+  background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(100, 181, 246, 0.3);
+  box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
 }
 
 /* Mobile responsive */

@@ -8,166 +8,319 @@
     <link rel="stylesheet" href="../CSS/planets.css" />
   </head>
   <body>
-    <div class="stars"></div>
+    <div class="space-background">
+      <div class="stars-layer"></div>
+      <div class="nebula-layer"></div>
+      <div class="galaxy-layer"></div>
+    </div>
+    
     <div class="back-link-wrapper">
       <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
     </div>
-    <div class="container">
+    
+    <div class="planets-page-container">
       <h1 class="page-title">Güneş Sistemi Gezegenleri</h1>
+      <p class="page-subtitle">Etkileşimli 3D gezegen görünümü ile güneş sistemini keşfedin</p>
       
-      <div class="planets-grid">
-        <div class="planet-card">
-          <h2>Merkür</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">4,879 km</span>
+      <div class="planet-viewer">
+        <div class="planet-viewer-carousel" id="planetViewerCarousel">
+          <!-- Mercury -->
+          <div class="planet-view" data-planet="mercury">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Mercury.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
             </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">57.9 milyon km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">59 gün</span>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Merkür</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">4,879 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">57.9 milyon km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">59 gün</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">88 gün</span>
+                </div>
+              </div>
+              <p class="planet-description">Merkür, Güneş'e en yakın gezegen, hızlı hareketi ve yoğun yapısıyla öne çıkar. Güneş sistemindeki en küçük gezegen olmasına rağmen, demir çekirdeği oldukça büyüktür.</p>
             </div>
           </div>
-          <p class="planet-description">Merkür, Güneş'e en yakın gezegen, hızlı hareketi ve yoğun yapısıyla öne çıkar. Güneş sistemindeki en küçük gezegen olmasına rağmen, demir çekirdeği oldukça büyüktür.</p>
+          
+          <!-- Venus -->
+          <div class="planet-view" data-planet="venus">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Venus.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Venüs</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">12,104 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">108.2 milyon km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">243 gün</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">225 gün</span>
+                </div>
+              </div>
+              <p class="planet-description">Venüs, Güneş sistemindeki en sıcak gezegen, yoğun atmosferi ve sera etkisiyle bilinir. Yüzeyi kurşunu eritecek kadar sıcaktır.</p>
+            </div>
+          </div>
+          
+          <!-- Earth -->
+          <div class="planet-view active" data-planet="earth">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Earth.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Dünya</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">12,756 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">149.6 milyon km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">24 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">365.25 gün</span>
+                </div>
+              </div>
+              <p class="planet-description">Dünya, evimiz, yaşam barındıran tek gezegen olarak bilinir. Okyanusları, atmosferi ve çeşitli ekosistemleriyle benzersizdir.</p>
+            </div>
+          </div>
+          
+          <!-- Mars -->
+          <div class="planet-view" data-planet="mars">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Mars.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Mars</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">6,792 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">227.9 milyon km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">24.6 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">687 gün</span>
+                </div>
+              </div>
+              <p class="planet-description">Mars, kırmızı gezegen olarak bilinir, gelecekteki insan kolonileri için en umut verici gezegendir. Kutup buzulları ve eski su kanalları bulunmuştur.</p>
+            </div>
+          </div>
+          
+          <!-- Jupiter -->
+          <div class="planet-view" data-planet="jupiter">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Jupiter.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Jüpiter</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">142,984 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">778.5 milyon km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">9.9 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">12 yıl</span>
+                </div>
+              </div>
+              <p class="planet-description">Jüpiter, Güneş sistemindeki en büyük gezegen, bir gaz devi olarak bilinir. Büyük Kırmızı Lekesi ve 79 uydusuyla öne çıkar.</p>
+            </div>
+          </div>
+          
+          <!-- Saturn -->
+          <div class="planet-view" data-planet="saturn">
+            <div class="planet-video-container">
+              <img src="../3D Planets/Saturn.gif" alt="Saturn" class="planet-video">
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Satürn</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">120,536 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">1.43 milyar km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">10.7 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">29 yıl</span>
+                </div>
+              </div>
+              <p class="planet-description">Satürn, halkalarıyla ünlü, Güneş sistemindeki en güzel gezegenlerden biridir. Yoğunluğu sudan az olan tek gezegendir.</p>
+            </div>
+          </div>
+          
+          <!-- Uranus -->
+          <div class="planet-view" data-planet="uranus">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Uranus.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Uranüs</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">51,118 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">2.87 milyar km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">17.2 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">84 yıl</span>
+                </div>
+              </div>
+              <p class="planet-description">Uranüs, yan yatık gezegen olarak bilinir, 98 derece eğik bir eksene sahiptir. Mavi-yeşil rengi metan gazından gelir.</p>
+            </div>
+          </div>
+          
+          <!-- Neptune -->
+          <div class="planet-view" data-planet="neptune">
+            <div class="planet-video-container">
+              <video autoplay loop muted playsinline class="planet-video">
+                <source src="../3D Planets/Neptun.mp4" type="video/mp4">
+              </video>
+              <div class="planet-video-overlay"></div>
+            </div>
+            <div class="planet-info-panel">
+              <h2 class="planet-name">Neptün</h2>
+              <div class="planet-stats-grid">
+                <div class="planet-stat">
+                  <span class="stat-label">Çap</span>
+                  <span class="stat-value">49,528 km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Güneş'e Uzaklık</span>
+                  <span class="stat-value">4.5 milyar km</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Gün Uzunluğu</span>
+                  <span class="stat-value">16.1 saat</span>
+                </div>
+                <div class="planet-stat">
+                  <span class="stat-label">Yıl Uzunluğu</span>
+                  <span class="stat-value">165 yıl</span>
+                </div>
+              </div>
+              <p class="planet-description">Neptün, Güneş sistemindeki en uzak gezegen, güçlü rüzgarları ve koyu mavi rengiyle bilinir. Rüzgar hızları 2,100 km/saat'e ulaşır.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="planet-card">
-          <h2>Venüs</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">12,104 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">108.2 milyon km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">243 gün</span>
-            </div>
-          </div>
-          <p class="planet-description">Venüs, Güneş sistemindeki en sıcak gezegen, yoğun atmosferi ve sera etkisiyle bilinir. Yüzeyi kurşunu eritecek kadar sıcaktır.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Dünya</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">12,756 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">149.6 milyon km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">24 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Dünya, evimiz, yaşam barındıran tek gezegen olarak bilinir. Okyanusları, atmosferi ve çeşitli ekosistemleriyle benzersizdir.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Mars</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">6,792 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">227.9 milyon km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">24.6 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Mars, kırmızı gezegen olarak bilinir, gelecekteki insan kolonileri için en umut verici gezegendir. Kutup buzulları ve eski su kanalları bulunmuştur.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Jüpiter</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">142,984 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">778.5 milyon km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">9.9 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Jüpiter, Güneş sistemindeki en büyük gezegen, bir gaz devi olarak bilinir. Büyük Kırmızı Lekesi ve 79 uydusuyla öne çıkar.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Satürn</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">120,536 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">1.43 milyar km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">10.7 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Satürn, halkalarıyla ünlü, Güneş sistemindeki en güzel gezegenlerden biridir. Yoğunluğu sudan az olan tek gezegendir.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Uranüs</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">51,118 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">2.87 milyar km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">17.2 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Uranüs, yan yatık gezegen olarak bilinir, 98 derece eğik bir eksene sahiptir. Mavi-yeşil rengi metan gazından gelir.</p>
-        </div>
-
-        <div class="planet-card">
-          <h2>Neptün</h2>
-          <div class="planet-stats">
-            <div class="stat">
-              <span class="stat-label">Çap</span>
-              <span class="stat-value">49,528 km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Güneş'e Uzaklık</span>
-              <span class="stat-value">4.5 milyar km</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Gün Uzunluğu</span>
-              <span class="stat-value">16.1 saat</span>
-            </div>
-          </div>
-          <p class="planet-description">Neptün, Güneş sistemindeki en uzak gezegen, güçlü rüzgarları ve koyu mavi rengiyle bilinir. Rüzgar hızları 2,100 km/saat'e ulaşır.</p>
+        
+        <!-- Navigation Buttons -->
+        <button class="planet-nav-btn planet-nav-prev" id="prevPlanetBtn" aria-label="Önceki gezegen">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button class="planet-nav-btn planet-nav-next" id="nextPlanetBtn" aria-label="Sonraki gezegen">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+        
+        <!-- Planet Indicators -->
+        <div class="planet-indicators">
+          <button class="planet-indicator" data-index="0" aria-label="Merkür">
+            <span>Merkür</span>
+          </button>
+          <button class="planet-indicator" data-index="1" aria-label="Venüs">
+            <span>Venüs</span>
+          </button>
+          <button class="planet-indicator active" data-index="2" aria-label="Dünya">
+            <span>Dünya</span>
+          </button>
+          <button class="planet-indicator" data-index="3" aria-label="Mars">
+            <span>Mars</span>
+          </button>
+          <button class="planet-indicator" data-index="4" aria-label="Jüpiter">
+            <span>Jüpiter</span>
+          </button>
+          <button class="planet-indicator" data-index="5" aria-label="Satürn">
+            <span>Satürn</span>
+          </button>
+          <button class="planet-indicator" data-index="6" aria-label="Uranüs">
+            <span>Uranüs</span>
+          </button>
+          <button class="planet-indicator" data-index="7" aria-label="Neptün">
+            <span>Neptün</span>
+          </button>
         </div>
       </div>
     </div>
+    
+    <script src="../JS/planets-page.js"></script>
   </body>
 </html>

@@ -201,3 +201,108 @@
     padding: 1.25rem;
   }
 }
+
+/* Filter Container Styles */
+.filter-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(15, 17, 26, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.search-input,
+.category-filter {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  background: rgba(20, 23, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #e8eaf6;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  pointer-events: auto !important;
+  cursor: text;
+  z-index: 10;
+  position: relative;
+}
+
+.category-filter {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364b5f6' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+.search-input:focus,
+.category-filter:focus {
+  outline: none;
+  border-color: #64b5f6;
+  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.filter-results {
+  color: rgba(232, 234, 246, 0.65);
+  font-size: 0.9rem;
+}
+
+.fact-card.animate-in {
+  animation: fadeInScale 0.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(100, 181, 246, 0.4),
+                0 0 40px rgba(100, 181, 246, 0.2);
+  }
+}
+
+@media (max-width: 780px) {
+  .filter-controls {
+    flex-direction: column;
+  }
+  
+  .search-input,
+  .category-filter {
+    width: 100%;
+    min-width: auto;
+  }
+}
